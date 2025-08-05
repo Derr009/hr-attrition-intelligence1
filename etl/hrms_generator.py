@@ -84,16 +84,11 @@ def generate_hrms_dummy_data(num_employees=300, save_csv=True):
 
     df = pd.DataFrame(data)
 
-    # Save to CSVs
+    # Save to CSVs using backup utility
     if save_csv:
-        os.makedirs(data_dir, exist_ok=True)
-        os.makedirs(backup_dir, exist_ok=True)
-        timestamp = dt.now().strftime("%Y%m%d_%H%M%S")
-        backup_path = backup_dir / f"hrms_data_{timestamp}.csv"
-        df.to_csv(backup_path, index=False)
+        from etl.utils import save_with_backup
         latest_path = data_dir / "hrms_latest.csv"
-        df.to_csv(latest_path, index=False)
-        print(f"Saved latest HRMS data to {latest_path} and archived version to {backup_path}")
+        save_with_backup(df, latest_path, backup_dir, prefix="hrms_data")
 
     return df
 

@@ -5,6 +5,8 @@ import time
 from datetime import datetime
 from pathlib import Path
 import os
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def parse_review_block(review_meta, soup):
     review_id = review_meta.get('id')
@@ -65,7 +67,7 @@ def scrape_reviews(company_slug, num_pages=3, delay=1, save_csv=True):
     for page in range(1, num_pages + 1):
         page_url = f"{base_url}?page={page}"
         try:
-            res = requests.get(page_url, headers=headers)
+            res = requests.get(page_url, headers=headers, verify=False)
             res.raise_for_status()
         except requests.exceptions.RequestException as e:
             print(f"Error fetching page {page_url}: {e}")

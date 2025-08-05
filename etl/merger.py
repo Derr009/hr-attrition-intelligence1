@@ -22,14 +22,24 @@ def merge_hrms_reviews():
     df_hrms['department'] = df_hrms['department'].str.strip()
     df_reviews['Department'] = df_reviews['Department'].str.replace('Department', '', regex=False).str.strip()
 
-    # --- Map each review to a random employee in the same department (if possible) ---
+    # --- Improved Mapping: prioritize department+location, then department, then any employee ---
     enriched_reviews = []
     for _, review in df_reviews.iterrows():
-        dept_employees = df_hrms[df_hrms['department'].str.lower() == review['Department'].lower()]
-        if dept_employees.empty:
-            mapped_emp = df_hrms.sample(1).iloc[0]  # fallback to random employee
+        # 1. Try department + location match
+        dept_loc_employees = df_hrms[
+            (df_hrms['department'].str.lower() == review['Department'].lower()) &
+            (df_hrms['location'].str.lower() == str(review['Location']).lower())
+        ]
+        if not dept_loc_employees.empty:
+            mapped_emp = dept_loc_employees.sample(1).iloc[0]
         else:
-            mapped_emp = dept_employees.sample(1).iloc[0]
+            # 2. Try department only
+            dept_employees = df_hrms[df_hrms['department'].str.lower() == review['Department'].lower()]
+            if not dept_employees.empty:
+                mapped_emp = dept_employees.sample(1).iloc[0]
+            else:
+                # 3. Fallback: any employee
+                mapped_emp = df_hrms.sample(1).iloc[0]
 
         enriched_reviews.append({
             "review_id": review['ReviewID'],
@@ -53,20 +63,19 @@ def merge_hrms_reviews():
             "age": mapped_emp['age']
         })
 
+    # This logic ensures all reviews are enriched and output count is preserved, maximizing match quality.
+
     merged_df = pd.DataFrame(enriched_reviews)
 
-    # --- Save to CSV ---
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    # --- Save to CSV with backup utility ---
+    from etl.utils import save_with_backup
     latest_path = data_dir / "reviews_enriched_latest.csv"
-    backup_path = backup_dir / f"reviews_enriched_{timestamp}.csv"
-    merged_df.to_csv(latest_path, index=False)
-    merged_df.to_csv(backup_path, index=False)
-    print(f"Saved enriched dataset to {latest_path} and archived version to {backup_path}")
+    save_with_backup(merged_df, latest_path, backup_dir, prefix="reviews_enriched")
 
     # --- Insert into SQLite ---
     db_path = project_root / "data" / "hr_analytics.db"
     conn = sqlite3.connect(db_path)
-    merged_df.to_sql("reviews_enriched", conn, if_exists="append", index=False)
+    merged_df.to_sql("reviews_enriched", conn, if_exists="replace", index=False)
     conn.close()
     print("Inserted enriched data into SQLite.")
 
