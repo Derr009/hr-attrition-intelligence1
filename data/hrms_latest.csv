@@ -1,301 +1,301 @@
 employee_id,name,department,location,designation,joining_date,exit_date,status,attrition_reason,engagement_score,performance_rating,salary_band,gender,age
-EMP0001,Ishaan Patel,Recruitment & Talent Acquisition Department,Nandigama,Principal Software Engineer,2019-06-12,2021-11-03,Exited,Personal Reasons,8.1,4,A,Female,49
-EMP0002,Ishaan Reddy,Marketing Department,Hyderabad / Secunderabad,Lead Software Engineer,2021-05-06,2023-08-23,Exited,Work-Life Balance,5.6,5,C,Male,50
-EMP0003,Rohan Patel,Data Science & Analytics - Other Department,Bangalore / Bengaluru,Senior Quality Engineer,2022-04-13,,Active,,4.4,2,B,Female,39
-EMP0004,Aisha Nair,IT Support Department,Hyderabad / Secunderabad,Junior Engineer,2021-09-29,,Active,,5.8,3,C,Female,42
-EMP0005,Karthik Reddy,Engineering Department,Hyderabad / Secunderabad,UI UX Developer,2019-03-28,,Active,,5.1,2,C,Male,39
-EMP0006,Diya Nair,Business Intelligence & Analytics Department,Nandigama,Lead Software Engineer,2020-12-27,,Active,,8.8,1,B,Female,44
-EMP0007,Meera Reddy,Marketing Department,Bangalore / Bengaluru,SDE,2019-05-09,,Active,,8.6,4,A,Male,35
-EMP0008,Krishna Reddy,HR Operations Department,Nandigama,QA Engineer,2021-01-19,,Active,,6.7,5,C,Female,30
-EMP0009,Diya Iyer,Business Intelligence & Analytics Department,Hyderabad / Secunderabad,UI UX Developer,2019-05-05,,Active,,6.5,1,B,Male,46
-EMP0010,Pooja Iyer,Software Development Department,Hyderabad / Secunderabad,Principal Software Engineer,2019-07-07,,Active,,5.2,3,C,Male,27
-EMP0011,Rahul Reddy,IT Support Department,Nandigama,Software Development Engineer,2020-03-15,,Active,,6.8,5,C,Female,47
-EMP0012,Siddharth Nair,Business Intelligence & Analytics Department,Hyderabad / Secunderabad,Software Development Engineer,2022-11-14,,Active,,7.0,3,C,Female,36
-EMP0013,Vivaan Reddy,Operations Support Department,Nandigama,Software Developer,2022-03-27,,Active,,7.0,5,B,Female,28
-EMP0014,Rahul Singh,Operations Support Department,Bangalore / Bengaluru,SDE,2023-01-06,,Active,,6.2,1,B,Female,27
-EMP0015,Pooja Iyer,Technology / IT Department,Hyderabad / Secunderabad,Lead Software Engineer,2021-07-07,2024-04-10,Exited,Relocation,4.6,5,C,Female,22
-EMP0016,Aditya Reddy,Production & Manufacturing Department,Hyderabad / Secunderabad,Software Development Engineer 1,2018-06-10,,Active,,4.6,4,B,Female,35
-EMP0017,Arjun Singh,IT Support Department,Bangalore / Bengaluru,Junior Engineer,2022-08-10,,Active,,6.1,1,C,Male,49
-EMP0018,Vikram Singh,Technology / IT Department,Bangalore / Bengaluru,Senior Talent Partner,2020-06-28,,Active,,8.7,5,C,Male,22
-EMP0019,Karthik Reddy,IT Support Department,Nandigama,Marketing Executive,2022-07-20,,Active,,4.7,1,C,Male,41
-EMP0020,Siddharth Nair,Data Department,Bangalore / Bengaluru,Sdet,2023-04-02,,Active,,6.1,5,C,Female,47
-EMP0021,Vikram Singh,Engineering Department,Hyderabad / Secunderabad,Associate,2022-02-05,2023-09-17,Exited,Work-Life Balance,8.2,1,A,Female,45
-EMP0022,Aarav Nair,Data Science & Analytics - Other Department,Bangalore / Bengaluru,Front end Engineer,2023-02-09,,Active,,8.0,2,A,Male,46
-EMP0023,Karthik Nair,Recruitment & Talent Acquisition Department,Bangalore / Bengaluru,QA Engineer,2022-08-31,,Active,,5.3,2,C,Male,38
-EMP0024,Priya Iyer,Business Intelligence & Analytics Department,Hyderabad / Secunderabad,Technical Staff Member 3,2020-11-05,2022-02-27,Exited,Relocation,5.4,3,A,Male,42
-EMP0025,Diya Reddy,Data Department,Bangalore / Bengaluru,Senior QA Engineer,2023-04-06,,Active,,4.4,3,B,Female,32
-EMP0026,Priya Singh,HR Operations Department,Hyderabad / Secunderabad,Senior Quality Engineer,2022-12-24,,Active,,4.2,4,B,Male,40
-EMP0027,Pooja Patel,Engineering Department,Nandigama,Technical Staff Member 3,2022-02-23,,Active,,6.2,5,B,Female,34
-EMP0028,Pooja Sharma,Business Intelligence & Analytics Department,Bangalore / Bengaluru,Senior Talent Partner,2021-04-20,,Active,,8.7,5,B,Male,30
-EMP0029,Sneha Patel,Data Science & Machine Learning Department,Hyderabad / Secunderabad,Lead Software Engineer,2019-05-19,2024-08-18,Exited,Compensation,5.9,1,A,Female,43
-EMP0030,Vivaan Sharma,Product Management - Technology Department,Nandigama,Lead Software Engineer,2022-02-18,,Active,,4.4,5,C,Female,33
-EMP0031,Arjun Singh,HR Operations Department,Bangalore / Bengaluru,Junior Engineer,2019-09-20,2024-09-01,Exited,Relocation,8.1,4,C,Female,35
-EMP0032,Rahul Patel,IT Support Department,Nandigama,Senior QA Engineer,2022-04-28,,Active,,5.4,5,A,Female,33
-EMP0033,Aarav Iyer,HR Operations Department,Bangalore / Bengaluru,Principal Software Engineer,2021-11-18,,Active,,6.5,1,B,Male,50
-EMP0034,Rahul Patel,DBA / Data warehousing Department,Bangalore / Bengaluru,SDE-2,2021-05-12,2023-12-26,Exited,Compensation,5.1,1,A,Female,46
-EMP0035,Meera Singh,Software Development Department,Nandigama,Data Analyst 1,2022-07-11,,Active,,5.9,4,B,Female,46
-EMP0036,Aarav Patel,HR Operations Department,Bangalore / Bengaluru,Data Analyst,2018-06-06,2022-09-22,Exited,Relocation,7.5,3,A,Female,36
-EMP0037,Pooja Iyer,Production & Manufacturing Department,Hyderabad / Secunderabad,Junior Engineer,2021-08-09,,Active,,6.4,3,C,Male,48
-EMP0038,Riya Iyer,Data Science & Analytics - Other Department,Nandigama,Senior Talent Partner,2018-06-18,,Active,,6.1,2,A,Female,25
-EMP0039,Rohan Patel,Operations Support Department,Nandigama,Senior Quality Engineer,2019-03-01,,Active,,6.3,5,B,Male,49
-EMP0040,Ananya Nair,Software Development Department,Bangalore / Bengaluru,Front end Engineer,2020-12-27,,Active,,5.4,5,A,Female,41
-EMP0041,Krishna Reddy,Software Development Department,Hyderabad / Secunderabad,Technical Staff Member 3,2021-12-24,,Active,,5.0,2,C,Male,33
-EMP0042,Lakshmi Iyer,HR Operations Department,Bangalore / Bengaluru,Associate,2022-10-27,2023-06-20,Exited,Work-Life Balance,4.2,4,A,Male,34
-EMP0043,Pooja Iyer,Product Management - Technology Department,Hyderabad / Secunderabad,Senior Software Engineer,2022-10-06,,Active,,4.4,2,B,Male,26
-EMP0044,Pooja Reddy,Technology / IT Department,Bangalore / Bengaluru,Associate Project Manager,2021-01-11,,Active,,8.0,3,C,Female,48
-EMP0045,Sneha Nair,Recruitment & Talent Acquisition Department,Hyderabad / Secunderabad,QA Engineer,2021-01-13,2023-04-21,Exited,Compensation,7.6,5,A,Male,25
-EMP0046,Arjun Singh,Data Department,Nandigama,Associate,2019-06-22,2022-06-18,Exited,Compensation,6.5,4,B,Male,46
-EMP0047,Arjun Patel,Data Science & Machine Learning Department,Bangalore / Bengaluru,Associate,2021-05-28,,Active,,7.7,2,B,Male,50
-EMP0048,Riya Iyer,Data Science & Machine Learning Department,Bangalore / Bengaluru,Principal Software Engineer,2022-04-14,,Active,,8.8,3,C,Female,24
-EMP0049,Arjun Singh,IT Support Department,Bangalore / Bengaluru,Data Engineer,2023-04-24,,Active,,5.8,5,A,Female,40
-EMP0050,Aditya Iyer,Software Development Department,Hyderabad / Secunderabad,Software Development Engineer II,2018-09-12,,Active,,6.1,1,A,Female,23
-EMP0051,Aisha Iyer,Product Management - Technology Department,Bangalore / Bengaluru,Principal Software Engineer,2019-01-09,2023-06-25,Exited,Personal Reasons,8.6,5,C,Female,24
-EMP0052,Pooja Patel,Marketing Department,Hyderabad / Secunderabad,Junior Engineer,2019-10-23,2023-07-20,Exited,Relocation,5.1,1,C,Female,39
-EMP0053,Karthik Sharma,Business Intelligence & Analytics Department,Bangalore / Bengaluru,Associate,2020-11-05,,Active,,4.8,1,C,Female,25
-EMP0054,Siddharth Reddy,UI / UX Department,Bangalore / Bengaluru,Front end Engineer,2018-10-09,2019-08-23,Exited,Better Opportunity,8.2,5,A,Male,37
-EMP0055,Meera Singh,Data Department,Nandigama,UI UX Developer,2020-12-04,,Active,,7.7,5,B,Male,44
-EMP0056,Riya Singh,UI / UX Department,Nandigama,Technical Staff Member 3,2018-11-03,,Active,,5.6,2,B,Male,46
-EMP0057,Meera Sharma,Recruitment & Talent Acquisition Department,Hyderabad / Secunderabad,Senior Software Engineer,2018-10-29,2021-02-18,Exited,Relocation,8.9,1,A,Female,35
-EMP0058,Siddharth Reddy,Marketing Department,Bangalore / Bengaluru,Associate Project Manager,2021-12-04,,Active,,6.3,2,B,Male,24
-EMP0059,Vivaan Patel,Product Management - Technology Department,Nandigama,Data Analyst 1,2018-04-23,,Active,,7.3,1,C,Female,27
-EMP0060,Lakshmi Singh,Data Science & Analytics - Other Department,Nandigama,Technical Staff Member 3,2020-12-28,,Active,,5.2,1,A,Male,24
-EMP0061,Vikram Patel,Production & Manufacturing Department,Hyderabad / Secunderabad,Software Development Engineer II,2019-04-06,,Active,,4.8,4,C,Male,26
-EMP0062,Siddharth Nair,Recruitment & Talent Acquisition Department,Nandigama,Data Analyst,2021-07-24,,Active,,6.3,4,C,Female,28
-EMP0063,Rohan Iyer,Recruitment & Talent Acquisition Department,Bangalore / Bengaluru,Junior Engineer,2018-01-08,2021-02-28,Exited,Better Opportunity,4.6,4,B,Female,28
-EMP0064,Aarav Nair,Technology / IT Department,Hyderabad / Secunderabad,QA Engineer,2022-08-20,,Active,,6.6,5,A,Female,34
-EMP0065,Aarav Nair,Quality Assurance and Testing Department,Hyderabad / Secunderabad,Technical Staff Member 3,2020-10-24,,Active,,6.4,1,C,Female,25
-EMP0066,Priya Reddy,UI / UX Department,Bangalore / Bengaluru,Lead Software Engineer,2019-01-15,2023-07-03,Exited,Better Opportunity,4.5,1,B,Female,36
-EMP0067,Rohan Nair,DBA / Data warehousing Department,Hyderabad / Secunderabad,Principal Software Engineer,2018-02-08,,Active,,6.6,3,B,Male,42
-EMP0068,Priya Nair,HR Operations Department,Bangalore / Bengaluru,Junior Engineer,2020-09-27,,Active,,7.0,5,C,Female,28
-EMP0069,Ishaan Reddy,Technology / IT Department,Bangalore / Bengaluru,Software Developer,2022-02-08,,Active,,7.1,3,B,Male,35
-EMP0070,Rahul Sharma,Technology / IT Department,Hyderabad / Secunderabad,Software Engineer,2018-02-09,2022-10-12,Exited,Relocation,8.4,1,C,Female,34
-EMP0071,Meera Singh,Software Development Department,Bangalore / Bengaluru,UI UX Developer,2019-08-08,,Active,,6.3,5,A,Female,49
-EMP0072,Vivaan Reddy,UI / UX Department,Hyderabad / Secunderabad,HR Executive,2022-11-01,,Active,,6.2,4,B,Male,42
-EMP0073,Ishaan Patel,Recruitment & Talent Acquisition Department,Nandigama,Associate Project Manager,2019-08-11,,Active,,6.1,4,B,Female,42
-EMP0074,Sneha Iyer,Technology / IT Department,Hyderabad / Secunderabad,Associate Project Manager,2019-03-29,,Active,,7.9,4,C,Female,39
-EMP0075,Aarav Singh,UI / UX Department,Hyderabad / Secunderabad,Member Technical Staff 2,2020-09-06,,Active,,4.7,2,A,Male,32
-EMP0076,Sneha Nair,IT Support Department,Hyderabad / Secunderabad,Senior Quality Engineer,2019-07-05,2021-01-26,Exited,Relocation,6.4,1,A,Male,27
-EMP0077,Rahul Iyer,Production & Manufacturing Department,Nandigama,Lead Software Engineer,2019-12-25,2021-10-23,Exited,Compensation,6.0,5,C,Female,24
-EMP0078,Ananya Singh,IT Support Department,Hyderabad / Secunderabad,Marketing Executive,2018-12-25,2023-03-18,Exited,Work-Life Balance,8.4,2,B,Male,41
-EMP0079,Ananya Patel,Data Department,Bangalore / Bengaluru,Technical Staff Member 3,2019-02-08,2019-09-04,Exited,Relocation,4.1,5,C,Female,48
-EMP0080,Aditya Iyer,Business Intelligence & Analytics Department,Bangalore / Bengaluru,Software Development Engineer 1,2021-04-11,,Active,,5.4,5,C,Male,39
-EMP0081,Aisha Singh,Marketing Department,Nandigama,Software Developer,2018-08-11,,Active,,4.9,1,C,Female,39
-EMP0082,Vivaan Singh,DBA / Data warehousing Department,Hyderabad / Secunderabad,Data Analyst,2021-04-28,,Active,,9.0,3,A,Female,50
-EMP0083,Karthik Sharma,Production & Manufacturing Department,Nandigama,Data Analyst,2021-10-31,,Active,,7.7,2,C,Female,22
-EMP0084,Sneha Iyer,Software Development Department,Nandigama,Lead Software Engineer,2018-09-03,,Active,,4.6,5,A,Male,30
-EMP0085,Riya Nair,UI / UX Department,Nandigama,Software Development Engineer 1,2021-10-31,,Active,,4.8,2,A,Female,35
-EMP0086,Aditya Sharma,Quality Assurance and Testing Department,Bangalore / Bengaluru,Associate,2022-02-12,,Active,,6.9,5,C,Female,40
-EMP0087,Rohan Nair,Software Development Department,Bangalore / Bengaluru,Principal Engineer,2021-01-29,2021-12-31,Exited,Personal Reasons,4.3,5,B,Female,46
-EMP0088,Riya Patel,Product Management - Technology Department,Bangalore / Bengaluru,Junior Engineer,2018-02-03,,Active,,6.9,3,A,Male,25
-EMP0089,Priya Nair,Quality Assurance and Testing Department,Nandigama,Software Development Engineer II,2020-11-21,2021-08-30,Exited,Compensation,5.1,3,A,Male,25
-EMP0090,Pooja Reddy,Data Science & Machine Learning Department,Hyderabad / Secunderabad,Software Development Engineer 1,2020-06-29,2023-01-10,Exited,Compensation,7.5,5,C,Female,41
-EMP0091,Aarav Iyer,Production & Manufacturing Department,Bangalore / Bengaluru,UI UX Developer,2022-08-24,2024-09-10,Exited,Work-Life Balance,5.5,4,C,Female,45
-EMP0092,Sneha Reddy,DBA / Data warehousing Department,Nandigama,Data Analyst,2022-07-22,,Active,,7.1,2,A,Female,33
-EMP0093,Lakshmi Nair,Business Intelligence & Analytics Department,Nandigama,Quality Engineer,2019-01-21,,Active,,8.4,1,A,Female,42
-EMP0094,Priya Reddy,Quality Assurance and Testing Department,Bangalore / Bengaluru,Junior Engineer,2018-09-09,2020-02-23,Exited,Relocation,5.9,4,C,Male,34
-EMP0095,Riya Nair,IT Support Department,Hyderabad / Secunderabad,Junior Engineer,2023-04-04,,Active,,7.6,5,B,Female,27
-EMP0096,Pooja Nair,IT Support Department,Bangalore / Bengaluru,Data Analyst,2018-08-21,,Active,,4.5,1,B,Female,40
-EMP0097,Riya Sharma,Data Science & Machine Learning Department,Bangalore / Bengaluru,Sdet,2022-08-04,2024-09-26,Exited,Better Opportunity,6.7,4,A,Male,33
-EMP0098,Aarav Singh,IT Support Department,Bangalore / Bengaluru,Front end Engineer,2018-12-15,,Active,,4.1,2,C,Female,32
-EMP0099,Diya Iyer,Business Intelligence & Analytics Department,Hyderabad / Secunderabad,Senior QA Engineer,2019-09-07,2022-01-10,Exited,Personal Reasons,5.7,5,B,Male,42
-EMP0100,Diya Singh,Engineering Department,Bangalore / Bengaluru,Senior QA Engineer,2019-08-20,2023-11-23,Exited,Personal Reasons,6.1,5,A,Female,30
-EMP0101,Ananya Reddy,Data Department,Bangalore / Bengaluru,Senior Talent Partner,2020-06-25,2023-02-02,Exited,Personal Reasons,7.4,3,B,Male,46
-EMP0102,Meera Nair,Software Development Department,Nandigama,Senior QA Engineer,2022-11-12,,Active,,4.1,1,C,Female,22
-EMP0103,Siddharth Singh,Business Intelligence & Analytics Department,Hyderabad / Secunderabad,Marketing Executive,2022-11-16,,Active,,6.8,2,A,Female,25
-EMP0104,Sneha Singh,Quality Assurance and Testing Department,Bangalore / Bengaluru,SDE-2,2019-05-03,2021-08-22,Exited,Work-Life Balance,7.4,2,A,Male,47
-EMP0105,Krishna Iyer,Data Science & Machine Learning Department,Bangalore / Bengaluru,Data Engineer,2021-08-28,,Active,,4.5,1,B,Male,38
-EMP0106,Ananya Nair,Data Department,Bangalore / Bengaluru,Data Engineer,2022-09-19,,Active,,6.8,1,A,Male,45
-EMP0107,Krishna Iyer,Business Intelligence & Analytics Department,Bangalore / Bengaluru,HR Executive,2023-01-16,,Active,,8.2,3,B,Male,44
-EMP0108,Arjun Iyer,Technology / IT Department,Hyderabad / Secunderabad,Software Development Engineer,2021-11-30,,Active,,7.3,4,A,Female,41
-EMP0109,Siddharth Iyer,Quality Assurance and Testing Department,Bangalore / Bengaluru,Technical Staff Member 3,2021-08-30,,Active,,5.4,5,B,Male,32
-EMP0110,Aarav Iyer,Data Science & Analytics - Other Department,Nandigama,Associate Project Manager,2021-11-02,2023-12-08,Exited,Better Opportunity,6.1,1,A,Female,45
-EMP0111,Arjun Singh,Recruitment & Talent Acquisition Department,Hyderabad / Secunderabad,SDE,2022-02-25,,Active,,7.0,2,A,Male,28
-EMP0112,Aarav Iyer,UI / UX Department,Hyderabad / Secunderabad,Principal Engineer,2022-12-14,,Active,,8.0,2,C,Male,39
-EMP0113,Krishna Reddy,HR Operations Department,Hyderabad / Secunderabad,Software Engineer,2023-05-27,,Active,,6.7,1,B,Female,35
-EMP0114,Diya Patel,Engineering Department,Nandigama,QA Engineer,2022-09-04,,Active,,4.7,4,B,Male,50
-EMP0115,Rahul Iyer,DBA / Data warehousing Department,Hyderabad / Secunderabad,Senior Software Engineer,2019-10-09,2024-12-24,Exited,Relocation,4.4,2,C,Male,31
-EMP0116,Aarav Patel,DBA / Data warehousing Department,Hyderabad / Secunderabad,SDE-2,2019-01-19,2023-07-24,Exited,Relocation,4.1,1,A,Male,25
-EMP0117,Vikram Reddy,Data Science & Machine Learning Department,Nandigama,Principal Software Engineer,2018-04-09,2022-06-21,Exited,Work-Life Balance,4.2,4,B,Male,34
-EMP0118,Priya Iyer,Operations Support Department,Bangalore / Bengaluru,Software Engineer,2020-02-14,2020-12-23,Exited,Personal Reasons,6.6,4,B,Male,22
-EMP0119,Aisha Reddy,Data Department,Nandigama,Senior Quality Engineer,2022-08-10,,Active,,4.3,2,C,Male,33
-EMP0120,Karthik Reddy,Operations Support Department,Bangalore / Bengaluru,Principal Engineer,2018-12-03,2021-06-15,Exited,Personal Reasons,7.1,3,C,Male,38
-EMP0121,Aditya Reddy,Data Department,Nandigama,Member Technical Staff 2,2021-05-04,2022-11-13,Exited,Better Opportunity,5.5,1,A,Female,43
-EMP0122,Sneha Singh,Product Management - Technology Department,Nandigama,Front end Engineer,2021-11-18,,Active,,8.5,3,A,Female,34
-EMP0123,Pooja Singh,Engineering Department,Nandigama,Software Development Engineer,2022-09-15,,Active,,6.9,2,A,Male,40
-EMP0124,Siddharth Nair,Recruitment & Talent Acquisition Department,Nandigama,Data Analyst 1,2022-09-19,2024-02-06,Exited,Relocation,7.0,4,B,Female,40
-EMP0125,Rohan Nair,Marketing Department,Bangalore / Bengaluru,Data Analyst,2022-01-26,,Active,,4.3,1,C,Male,37
-EMP0126,Meera Nair,UI / UX Department,Bangalore / Bengaluru,Software Development Engineer II,2020-02-23,2024-12-02,Exited,Personal Reasons,6.9,2,A,Male,36
-EMP0127,Vivaan Nair,Recruitment & Talent Acquisition Department,Bangalore / Bengaluru,UI UX Developer,2018-01-28,,Active,,5.8,2,C,Female,27
-EMP0128,Arjun Nair,Operations Support Department,Nandigama,Senior Quality Engineer,2021-09-07,2023-09-30,Exited,Compensation,8.8,5,B,Female,35
-EMP0129,Karthik Patel,Business Intelligence & Analytics Department,Bangalore / Bengaluru,Data Analyst,2021-05-02,2023-06-29,Exited,Better Opportunity,8.9,5,B,Female,46
-EMP0130,Aarav Patel,Recruitment & Talent Acquisition Department,Nandigama,Associate,2019-02-23,2024-06-01,Exited,Relocation,5.4,1,C,Male,46
-EMP0131,Aarav Nair,HR Operations Department,Bangalore / Bengaluru,Software Development Engineer,2022-03-09,,Active,,7.1,4,C,Male,25
-EMP0132,Pooja Singh,Data Science & Analytics - Other Department,Bangalore / Bengaluru,Software Development Engineer,2023-05-21,,Active,,6.4,4,A,Male,43
-EMP0133,Priya Sharma,Quality Assurance and Testing Department,Nandigama,Principal Software Engineer,2020-11-28,2024-01-21,Exited,Compensation,5.1,3,A,Male,25
-EMP0134,Vivaan Sharma,Product Management - Technology Department,Hyderabad / Secunderabad,Principal Software Engineer,2022-07-27,,Active,,6.6,5,C,Female,30
-EMP0135,Pooja Reddy,Data Department,Bangalore / Bengaluru,Front end Engineer,2019-01-23,2020-11-18,Exited,Relocation,4.1,1,B,Female,32
-EMP0136,Priya Nair,UI / UX Department,Hyderabad / Secunderabad,Senior QA Engineer,2023-03-22,,Active,,7.0,3,B,Female,28
-EMP0137,Rohan Reddy,Recruitment & Talent Acquisition Department,Nandigama,Data Analyst 1,2018-06-11,,Active,,7.1,2,A,Female,29
-EMP0138,Vikram Reddy,Recruitment & Talent Acquisition Department,Nandigama,Technical Staff Member 3,2018-11-14,2022-06-20,Exited,Personal Reasons,8.3,5,A,Male,45
-EMP0139,Aisha Iyer,Quality Assurance and Testing Department,Hyderabad / Secunderabad,Senior QA Engineer,2018-06-29,2020-09-22,Exited,Better Opportunity,4.0,4,A,Male,43
-EMP0140,Diya Sharma,HR Operations Department,Nandigama,SDE-2,2022-07-01,2023-03-07,Exited,Personal Reasons,5.3,2,A,Female,22
-EMP0141,Riya Iyer,Data Science & Machine Learning Department,Hyderabad / Secunderabad,HR Executive,2020-04-24,2024-02-23,Exited,Better Opportunity,7.8,1,A,Male,32
-EMP0142,Ananya Singh,Quality Assurance and Testing Department,Bangalore / Bengaluru,Software Development Engineer II,2020-02-17,2021-10-01,Exited,Personal Reasons,7.6,5,A,Male,37
-EMP0143,Meera Reddy,Production & Manufacturing Department,Nandigama,Quality Engineer,2018-11-20,2022-11-23,Exited,Personal Reasons,4.3,2,B,Male,24
-EMP0144,Lakshmi Iyer,Business Intelligence & Analytics Department,Bangalore / Bengaluru,Quality Engineer,2020-09-29,2024-08-19,Exited,Relocation,5.5,1,B,Female,30
-EMP0145,Riya Reddy,Production & Manufacturing Department,Bangalore / Bengaluru,Associate,2018-06-26,2023-01-30,Exited,Relocation,8.7,2,A,Female,40
-EMP0146,Aarav Iyer,Business Intelligence & Analytics Department,Nandigama,Sdet,2020-03-01,,Active,,5.0,3,B,Male,44
-EMP0147,Aarav Singh,Operations Support Department,Hyderabad / Secunderabad,Associate,2019-05-02,2022-07-12,Exited,Personal Reasons,8.0,3,B,Female,35
-EMP0148,Aditya Iyer,Software Development Department,Bangalore / Bengaluru,Associate,2020-05-27,2022-06-26,Exited,Relocation,4.4,4,A,Female,36
-EMP0149,Meera Singh,Product Management - Technology Department,Bangalore / Bengaluru,Senior Quality Engineer,2018-06-18,,Active,,8.7,5,C,Male,32
-EMP0150,Aditya Nair,HR Operations Department,Nandigama,Data Engineer,2022-10-30,,Active,,5.5,2,B,Female,38
-EMP0151,Aisha Patel,DBA / Data warehousing Department,Bangalore / Bengaluru,Member Technical Staff 2,2021-05-16,,Active,,5.0,3,A,Male,48
-EMP0152,Meera Sharma,UI / UX Department,Bangalore / Bengaluru,Software Developer,2022-03-09,,Active,,7.5,4,B,Female,23
-EMP0153,Aarav Singh,Technology / IT Department,Nandigama,Associate,2022-09-11,,Active,,6.4,1,C,Female,34
-EMP0154,Diya Reddy,Product Management - Technology Department,Hyderabad / Secunderabad,Software Development Engineer II,2018-09-02,2019-08-17,Exited,Compensation,4.2,1,A,Female,40
-EMP0155,Vikram Nair,Data Science & Machine Learning Department,Nandigama,Quality Engineer,2021-07-28,2024-11-03,Exited,Relocation,4.3,4,B,Male,24
-EMP0156,Karthik Singh,HR Operations Department,Hyderabad / Secunderabad,Technical Staff Member 3,2022-12-21,,Active,,7.6,3,A,Female,29
-EMP0157,Ishaan Sharma,Operations Support Department,Hyderabad / Secunderabad,Senior Quality Engineer,2022-10-30,2024-07-09,Exited,Better Opportunity,7.2,3,C,Male,36
-EMP0158,Krishna Iyer,Software Development Department,Hyderabad / Secunderabad,Front end Engineer,2019-08-07,,Active,,4.5,4,A,Male,35
-EMP0159,Rahul Iyer,Production & Manufacturing Department,Nandigama,QA Engineer,2018-08-17,,Active,,4.6,3,A,Female,28
-EMP0160,Meera Iyer,Technology / IT Department,Hyderabad / Secunderabad,Technical Staff Member 3,2019-02-02,,Active,,7.9,1,A,Female,22
-EMP0161,Rohan Patel,HR Operations Department,Hyderabad / Secunderabad,HR Executive,2022-11-20,,Active,,4.6,5,B,Male,29
-EMP0162,Arjun Iyer,Engineering Department,Nandigama,Quality Engineer,2020-11-18,,Active,,4.4,4,B,Male,31
-EMP0163,Arjun Reddy,Data Science & Machine Learning Department,Bangalore / Bengaluru,Marketing Executive,2020-11-07,,Active,,4.3,1,B,Female,35
-EMP0164,Arjun Iyer,Production & Manufacturing Department,Nandigama,SDE-2,2019-08-08,2022-06-10,Exited,Personal Reasons,5.2,2,A,Male,43
-EMP0165,Lakshmi Singh,Software Development Department,Hyderabad / Secunderabad,HR Executive,2018-01-31,2022-01-25,Exited,Personal Reasons,6.6,1,B,Male,31
-EMP0166,Siddharth Nair,DBA / Data warehousing Department,Hyderabad / Secunderabad,Principal Software Engineer,2022-04-16,2023-03-12,Exited,Better Opportunity,8.6,3,C,Female,43
-EMP0167,Aditya Singh,Data Science & Machine Learning Department,Hyderabad / Secunderabad,Principal Engineer,2022-11-27,,Active,,4.9,1,A,Female,30
-EMP0168,Krishna Singh,Engineering Department,Hyderabad / Secunderabad,Software Development Engineer,2020-10-16,2022-06-29,Exited,Compensation,4.2,4,B,Male,50
-EMP0169,Rohan Sharma,IT Support Department,Hyderabad / Secunderabad,Software Development Engineer 1,2021-04-23,,Active,,8.4,1,C,Female,34
-EMP0170,Krishna Nair,Quality Assurance and Testing Department,Bangalore / Bengaluru,Software Development Engineer,2022-07-06,2023-03-14,Exited,Work-Life Balance,5.7,5,A,Female,25
-EMP0171,Sneha Patel,HR Operations Department,Hyderabad / Secunderabad,Senior Talent Partner,2021-09-30,2023-05-03,Exited,Work-Life Balance,6.6,3,C,Male,24
-EMP0172,Aditya Patel,Engineering Department,Nandigama,UI UX Developer,2019-08-11,2023-11-23,Exited,Compensation,5.3,2,A,Female,40
-EMP0173,Meera Reddy,UI / UX Department,Bangalore / Bengaluru,UI UX Developer,2023-06-10,,Active,,5.4,5,B,Male,50
-EMP0174,Karthik Singh,Product Management - Technology Department,Hyderabad / Secunderabad,UI UX Developer,2021-08-01,,Active,,8.5,3,B,Male,46
-EMP0175,Rohan Reddy,Business Intelligence & Analytics Department,Nandigama,Senior QA Engineer,2019-09-07,2023-12-28,Exited,Compensation,4.1,2,A,Female,25
-EMP0176,Vivaan Iyer,UI / UX Department,Bangalore / Bengaluru,Principal Engineer,2021-04-28,2023-07-23,Exited,Personal Reasons,4.2,1,C,Female,36
-EMP0177,Priya Patel,Production & Manufacturing Department,Bangalore / Bengaluru,Software Development Engineer 1,2020-02-22,,Active,,9.0,5,B,Female,29
-EMP0178,Aditya Reddy,IT Support Department,Hyderabad / Secunderabad,Junior Engineer,2018-09-25,2019-05-14,Exited,Better Opportunity,4.9,4,B,Female,22
-EMP0179,Pooja Nair,HR Operations Department,Nandigama,Software Development Engineer 1,2019-06-10,2021-12-30,Exited,Better Opportunity,7.4,1,C,Female,35
-EMP0180,Pooja Sharma,Engineering Department,Bangalore / Bengaluru,Data Analyst 1,2021-10-18,2023-12-26,Exited,Work-Life Balance,8.0,2,B,Male,27
-EMP0181,Rahul Reddy,Technology / IT Department,Bangalore / Bengaluru,Data Analyst,2020-05-07,2023-08-22,Exited,Personal Reasons,5.3,3,B,Female,31
-EMP0182,Karthik Sharma,Engineering Department,Bangalore / Bengaluru,Data Analyst 1,2018-11-09,2021-01-18,Exited,Compensation,7.7,5,C,Male,26
-EMP0183,Rohan Nair,Technology / IT Department,Bangalore / Bengaluru,Software Development Engineer 1,2021-09-04,,Active,,4.4,3,B,Female,28
-EMP0184,Aarav Nair,Quality Assurance and Testing Department,Nandigama,Associate,2022-06-28,2024-05-13,Exited,Personal Reasons,4.5,2,C,Female,22
-EMP0185,Aisha Nair,Data Department,Hyderabad / Secunderabad,Junior Engineer,2022-04-21,,Active,,4.7,2,B,Female,37
-EMP0186,Ishaan Patel,Engineering Department,Hyderabad / Secunderabad,Marketing Executive,2020-12-01,,Active,,6.8,4,C,Female,34
-EMP0187,Sneha Singh,Business Intelligence & Analytics Department,Nandigama,Software Development Engineer 1,2019-11-16,2024-09-06,Exited,Better Opportunity,4.5,3,C,Male,44
-EMP0188,Ananya Reddy,Data Department,Nandigama,Senior Talent Partner,2021-10-19,,Active,,8.7,3,B,Female,32
-EMP0189,Ishaan Patel,Recruitment & Talent Acquisition Department,Nandigama,Data Analyst 1,2020-07-01,,Active,,7.7,5,A,Male,22
-EMP0190,Diya Iyer,IT Support Department,Nandigama,Senior QA Engineer,2021-05-22,,Active,,4.2,5,A,Female,41
-EMP0191,Krishna Nair,Recruitment & Talent Acquisition Department,Bangalore / Bengaluru,Front end Engineer,2022-09-14,,Active,,5.1,2,C,Male,24
-EMP0192,Diya Singh,Marketing Department,Hyderabad / Secunderabad,Associate,2019-02-18,2020-01-29,Exited,Personal Reasons,8.3,3,C,Male,34
-EMP0193,Vikram Patel,IT Support Department,Bangalore / Bengaluru,Software Development Engineer II,2023-01-22,,Active,,5.1,3,B,Female,32
-EMP0194,Rohan Reddy,Production & Manufacturing Department,Hyderabad / Secunderabad,Quality Engineer,2020-12-12,2024-07-26,Exited,Compensation,4.9,2,C,Male,42
-EMP0195,Arjun Nair,Engineering Department,Bangalore / Bengaluru,Principal Engineer,2023-04-03,,Active,,8.2,4,B,Female,48
-EMP0196,Priya Singh,Data Science & Machine Learning Department,Hyderabad / Secunderabad,Front end Engineer,2020-04-15,,Active,,7.9,4,B,Male,23
-EMP0197,Priya Iyer,Data Science & Analytics - Other Department,Nandigama,UI UX Developer,2020-11-30,2023-07-10,Exited,Better Opportunity,6.0,2,C,Female,50
-EMP0198,Aisha Iyer,Business Intelligence & Analytics Department,Nandigama,Software Engineer,2020-10-02,,Active,,6.6,5,A,Female,45
-EMP0199,Ananya Singh,Technology / IT Department,Nandigama,Data Analyst,2022-07-21,,Active,,6.0,3,C,Female,45
-EMP0200,Siddharth Iyer,Business Intelligence & Analytics Department,Nandigama,Software Engineer,2021-02-01,,Active,,8.9,5,A,Female,46
-EMP0201,Meera Patel,Marketing Department,Hyderabad / Secunderabad,Software Development Engineer,2022-05-22,,Active,,5.8,1,C,Male,44
-EMP0202,Aarav Nair,Data Science & Machine Learning Department,Bangalore / Bengaluru,Quality Engineer,2021-06-12,,Active,,6.4,5,C,Male,40
-EMP0203,Arjun Reddy,Technology / IT Department,Bangalore / Bengaluru,Software Development Engineer,2018-07-30,2020-03-09,Exited,Personal Reasons,4.4,5,C,Male,47
-EMP0204,Pooja Singh,Data Science & Machine Learning Department,Bangalore / Bengaluru,HR Executive,2020-07-09,,Active,,8.3,3,A,Male,37
-EMP0205,Siddharth Nair,Data Science & Analytics - Other Department,Hyderabad / Secunderabad,Lead Software Engineer,2020-10-02,,Active,,7.2,5,A,Female,33
-EMP0206,Rahul Iyer,Product Management - Technology Department,Hyderabad / Secunderabad,Software Engineer,2018-02-19,2023-01-30,Exited,Relocation,5.5,3,A,Female,41
-EMP0207,Karthik Patel,Technology / IT Department,Nandigama,Junior Engineer,2019-03-14,,Active,,6.8,2,C,Female,37
-EMP0208,Arjun Patel,Production & Manufacturing Department,Hyderabad / Secunderabad,Member Technical Staff 2,2022-10-12,,Active,,8.3,2,C,Male,24
-EMP0209,Riya Nair,Operations Support Department,Bangalore / Bengaluru,Technical Staff Member 3,2021-03-14,,Active,,7.2,4,B,Female,22
-EMP0210,Karthik Sharma,HR Operations Department,Bangalore / Bengaluru,Member Technical Staff 2,2018-03-16,2018-10-08,Exited,Relocation,4.4,5,B,Female,25
-EMP0211,Aisha Sharma,Engineering Department,Bangalore / Bengaluru,Junior Engineer,2023-05-22,,Active,,4.6,2,A,Male,31
-EMP0212,Karthik Singh,Data Science & Machine Learning Department,Nandigama,Software Engineer,2023-04-19,,Active,,5.8,3,C,Female,30
-EMP0213,Rohan Reddy,Data Department,Bangalore / Bengaluru,HR Executive,2018-02-03,,Active,,7.3,3,B,Male,32
-EMP0214,Aarav Iyer,Recruitment & Talent Acquisition Department,Bangalore / Bengaluru,Junior Engineer,2018-03-17,,Active,,4.7,3,B,Male,41
-EMP0215,Riya Reddy,Software Development Department,Nandigama,HR Executive,2020-05-23,2021-04-18,Exited,Personal Reasons,5.5,4,C,Male,22
-EMP0216,Siddharth Patel,Software Development Department,Bangalore / Bengaluru,Principal Software Engineer,2021-10-23,2023-09-24,Exited,Personal Reasons,4.3,5,C,Male,43
-EMP0217,Rahul Nair,Data Science & Analytics - Other Department,Bangalore / Bengaluru,SDE,2018-05-28,,Active,,7.8,3,C,Male,22
-EMP0218,Riya Nair,Production & Manufacturing Department,Hyderabad / Secunderabad,Front end Engineer,2018-11-18,,Active,,7.9,1,B,Female,34
-EMP0219,Diya Patel,HR Operations Department,Nandigama,Marketing Executive,2021-10-24,2024-04-10,Exited,Work-Life Balance,5.2,3,B,Female,26
-EMP0220,Karthik Reddy,Product Management - Technology Department,Bangalore / Bengaluru,Software Engineer,2020-03-27,,Active,,8.0,1,B,Female,43
-EMP0221,Vikram Reddy,Production & Manufacturing Department,Bangalore / Bengaluru,Software Engineer,2019-06-26,2020-08-25,Exited,Relocation,5.9,5,B,Female,50
-EMP0222,Riya Sharma,UI / UX Department,Nandigama,Principal Software Engineer,2019-09-12,,Active,,7.7,3,A,Male,35
-EMP0223,Siddharth Sharma,Data Science & Machine Learning Department,Hyderabad / Secunderabad,Lead Software Engineer,2022-04-10,,Active,,7.6,5,B,Male,30
-EMP0224,Lakshmi Iyer,DBA / Data warehousing Department,Hyderabad / Secunderabad,Junior Engineer,2023-06-24,2024-04-23,Exited,Compensation,5.2,4,A,Male,47
-EMP0225,Meera Reddy,Recruitment & Talent Acquisition Department,Nandigama,Software Development Engineer 1,2020-08-08,2021-06-11,Exited,Compensation,6.6,2,A,Male,45
-EMP0226,Ananya Iyer,UI / UX Department,Nandigama,SDE-2,2020-03-12,2024-12-15,Exited,Relocation,7.5,1,B,Male,49
-EMP0227,Krishna Patel,Marketing Department,Hyderabad / Secunderabad,Data Analyst,2021-11-27,,Active,,4.7,5,B,Female,47
-EMP0228,Krishna Reddy,IT Support Department,Bangalore / Bengaluru,Front end Engineer,2023-04-06,,Active,,6.9,1,C,Female,45
-EMP0229,Arjun Iyer,Software Development Department,Nandigama,UI UX Developer,2018-05-20,2023-03-24,Exited,Personal Reasons,5.0,5,B,Female,32
-EMP0230,Aarav Nair,Software Development Department,Bangalore / Bengaluru,QA Engineer,2018-03-20,2022-03-25,Exited,Compensation,4.6,4,C,Female,46
-EMP0231,Ananya Patel,Technology / IT Department,Hyderabad / Secunderabad,Data Analyst,2021-06-04,,Active,,8.2,3,C,Male,32
-EMP0232,Ananya Nair,Software Development Department,Nandigama,Data Analyst 1,2022-10-13,,Active,,8.4,2,A,Female,43
-EMP0233,Ananya Patel,Operations Support Department,Hyderabad / Secunderabad,Member Technical Staff 2,2018-09-15,2021-03-08,Exited,Relocation,4.9,2,C,Female,49
-EMP0234,Lakshmi Sharma,IT Support Department,Bangalore / Bengaluru,Data Analyst 1,2021-09-13,,Active,,5.2,1,C,Female,22
-EMP0235,Karthik Sharma,UI / UX Department,Bangalore / Bengaluru,SDE,2019-05-02,,Active,,8.3,3,B,Female,30
-EMP0236,Vikram Reddy,Engineering Department,Hyderabad / Secunderabad,Senior Software Engineer,2018-12-31,2023-03-14,Exited,Work-Life Balance,5.0,1,C,Male,38
-EMP0237,Ananya Sharma,Quality Assurance and Testing Department,Hyderabad / Secunderabad,SDE,2019-05-12,,Active,,7.1,3,C,Female,42
-EMP0238,Rahul Nair,Quality Assurance and Testing Department,Hyderabad / Secunderabad,Technical Staff Member 3,2021-11-27,,Active,,6.1,5,C,Female,22
-EMP0239,Diya Reddy,UI / UX Department,Nandigama,Principal Software Engineer,2023-02-17,,Active,,6.8,2,B,Male,30
-EMP0240,Pooja Nair,DBA / Data warehousing Department,Hyderabad / Secunderabad,QA Engineer,2019-03-09,,Active,,4.2,2,C,Male,37
-EMP0241,Pooja Singh,Technology / IT Department,Bangalore / Bengaluru,Software Development Engineer,2018-07-09,2023-10-23,Exited,Better Opportunity,6.5,2,A,Female,39
-EMP0242,Siddharth Singh,Recruitment & Talent Acquisition Department,Hyderabad / Secunderabad,Data Analyst 1,2022-11-04,,Active,,6.8,1,C,Male,23
-EMP0243,Aarav Singh,IT Support Department,Nandigama,Member Technical Staff 2,2021-02-13,,Active,,4.1,5,C,Female,49
-EMP0244,Meera Singh,Software Development Department,Nandigama,Data Analyst,2018-06-27,2020-04-25,Exited,Personal Reasons,4.0,5,C,Female,41
-EMP0245,Rohan Singh,Data Science & Analytics - Other Department,Bangalore / Bengaluru,Associate Project Manager,2023-03-07,,Active,,5.2,3,A,Male,39
-EMP0246,Aarav Sharma,Business Intelligence & Analytics Department,Bangalore / Bengaluru,Data Engineer,2019-09-07,2023-05-11,Exited,Better Opportunity,4.7,1,C,Male,24
-EMP0247,Aarav Iyer,Production & Manufacturing Department,Bangalore / Bengaluru,Lead Software Engineer,2018-06-10,,Active,,5.7,3,C,Female,46
-EMP0248,Riya Reddy,Production & Manufacturing Department,Nandigama,Senior QA Engineer,2019-01-18,,Active,,6.1,4,C,Female,33
-EMP0249,Siddharth Sharma,Business Intelligence & Analytics Department,Hyderabad / Secunderabad,Data Analyst,2018-03-10,2022-06-11,Exited,Compensation,8.0,1,B,Female,22
-EMP0250,Vivaan Sharma,Recruitment & Talent Acquisition Department,Hyderabad / Secunderabad,Lead Software Engineer,2021-09-05,,Active,,4.3,5,C,Female,45
-EMP0251,Ananya Reddy,Business Intelligence & Analytics Department,Bangalore / Bengaluru,Data Analyst,2018-03-05,,Active,,4.9,1,C,Female,27
-EMP0252,Priya Iyer,HR Operations Department,Bangalore / Bengaluru,Front end Engineer,2021-07-12,,Active,,8.8,1,C,Female,48
-EMP0253,Siddharth Nair,Engineering Department,Hyderabad / Secunderabad,Data Analyst 1,2023-03-01,,Active,,7.9,3,B,Male,38
-EMP0254,Arjun Reddy,Data Science & Machine Learning Department,Hyderabad / Secunderabad,Software Development Engineer 1,2019-05-24,,Active,,4.9,1,C,Male,44
-EMP0255,Aarav Singh,Engineering Department,Bangalore / Bengaluru,Lead Software Engineer,2020-10-23,2022-08-23,Exited,Better Opportunity,7.0,5,B,Male,46
-EMP0256,Karthik Reddy,Business Intelligence & Analytics Department,Hyderabad / Secunderabad,Member Technical Staff 2,2018-06-12,2022-01-21,Exited,Compensation,7.3,4,A,Male,24
-EMP0257,Siddharth Nair,Quality Assurance and Testing Department,Bangalore / Bengaluru,Data Analyst,2018-05-22,,Active,,5.0,3,B,Female,43
-EMP0258,Aisha Reddy,Data Science & Analytics - Other Department,Hyderabad / Secunderabad,Marketing Executive,2021-07-21,,Active,,7.8,5,A,Female,33
-EMP0259,Meera Patel,Data Department,Bangalore / Bengaluru,Member Technical Staff 2,2018-11-13,2021-03-05,Exited,Better Opportunity,6.2,2,B,Male,36
-EMP0260,Aditya Sharma,HR Operations Department,Nandigama,SDE-2,2018-06-10,,Active,,8.4,4,B,Female,42
-EMP0261,Rohan Iyer,Operations Support Department,Bangalore / Bengaluru,Principal Software Engineer,2020-02-04,2023-06-17,Exited,Relocation,5.3,1,A,Female,43
-EMP0262,Ananya Nair,Marketing Department,Nandigama,Member Technical Staff 2,2021-08-15,,Active,,6.7,1,A,Female,47
-EMP0263,Sneha Singh,Quality Assurance and Testing Department,Nandigama,SDE,2019-09-29,2021-07-29,Exited,Personal Reasons,4.3,1,A,Female,41
-EMP0264,Ishaan Iyer,Data Science & Machine Learning Department,Bangalore / Bengaluru,Associate Project Manager,2023-01-20,,Active,,6.3,1,A,Male,26
-EMP0265,Aditya Patel,Product Management - Technology Department,Nandigama,Data Analyst 1,2020-04-14,,Active,,5.3,1,A,Male,38
-EMP0266,Sneha Sharma,Business Intelligence & Analytics Department,Bangalore / Bengaluru,Associate Project Manager,2023-02-15,,Active,,5.9,2,C,Female,23
-EMP0267,Aisha Sharma,UI / UX Department,Nandigama,Data Analyst 1,2018-06-15,,Active,,5.1,5,A,Female,22
-EMP0268,Ishaan Patel,Business Intelligence & Analytics Department,Hyderabad / Secunderabad,Technical Staff Member 3,2022-06-06,,Active,,8.0,4,B,Male,38
-EMP0269,Aarav Nair,Technology / IT Department,Bangalore / Bengaluru,Technical Staff Member 3,2020-06-14,,Active,,7.8,4,C,Female,30
-EMP0270,Sneha Reddy,Data Science & Machine Learning Department,Hyderabad / Secunderabad,Software Developer,2021-01-04,,Active,,6.5,1,C,Female,38
-EMP0271,Siddharth Reddy,Quality Assurance and Testing Department,Hyderabad / Secunderabad,Software Developer,2021-08-25,,Active,,4.0,4,B,Female,33
-EMP0272,Lakshmi Reddy,Engineering Department,Bangalore / Bengaluru,Data Analyst,2018-07-26,2023-08-01,Exited,Compensation,8.8,3,A,Female,42
-EMP0273,Aditya Nair,HR Operations Department,Bangalore / Bengaluru,Associate Project Manager,2018-06-30,2022-01-01,Exited,Compensation,8.5,3,B,Male,29
-EMP0274,Meera Reddy,UI / UX Department,Bangalore / Bengaluru,SDE-2,2021-07-20,,Active,,8.0,2,C,Male,22
-EMP0275,Karthik Nair,UI / UX Department,Nandigama,Quality Engineer,2018-12-19,2019-09-08,Exited,Better Opportunity,8.4,4,A,Male,37
-EMP0276,Lakshmi Nair,Data Science & Machine Learning Department,Bangalore / Bengaluru,Data Engineer,2019-05-27,2021-02-11,Exited,Work-Life Balance,7.6,5,B,Male,47
-EMP0277,Vivaan Patel,Software Development Department,Bangalore / Bengaluru,UI UX Developer,2020-09-11,2024-11-19,Exited,Personal Reasons,8.6,5,A,Female,44
-EMP0278,Pooja Patel,Data Department,Bangalore / Bengaluru,Sdet,2019-07-10,,Active,,4.7,5,C,Female,27
-EMP0279,Diya Iyer,Operations Support Department,Hyderabad / Secunderabad,Software Development Engineer,2019-06-25,,Active,,6.4,4,A,Male,28
-EMP0280,Pooja Nair,UI / UX Department,Nandigama,Member Technical Staff 2,2022-03-13,,Active,,4.8,2,B,Female,30
-EMP0281,Vivaan Nair,Operations Support Department,Nandigama,Senior QA Engineer,2019-07-20,2022-09-16,Exited,Compensation,4.2,3,C,Female,36
-EMP0282,Ishaan Sharma,Data Science & Machine Learning Department,Nandigama,Software Developer,2021-11-17,,Active,,4.4,5,A,Female,34
-EMP0283,Vikram Iyer,Quality Assurance and Testing Department,Nandigama,Quality Engineer,2019-11-12,,Active,,8.8,3,B,Female,41
-EMP0284,Vivaan Nair,Technology / IT Department,Hyderabad / Secunderabad,Front end Engineer,2020-12-24,,Active,,7.4,4,A,Male,42
-EMP0285,Vivaan Iyer,Data Science & Machine Learning Department,Hyderabad / Secunderabad,Data Analyst 1,2023-04-27,,Active,,4.7,3,B,Male,28
-EMP0286,Meera Nair,HR Operations Department,Bangalore / Bengaluru,Principal Software Engineer,2018-12-16,2023-02-02,Exited,Better Opportunity,4.9,1,A,Male,42
-EMP0287,Riya Patel,Marketing Department,Bangalore / Bengaluru,Senior Talent Partner,2023-06-02,,Active,,6.2,4,B,Male,37
-EMP0288,Krishna Singh,Business Intelligence & Analytics Department,Nandigama,Data Analyst 1,2021-04-24,,Active,,9.0,4,C,Male,46
-EMP0289,Rahul Singh,Software Development Department,Nandigama,Software Engineer,2018-10-07,2021-04-16,Exited,Work-Life Balance,4.3,3,C,Female,43
-EMP0290,Rahul Singh,Data Department,Nandigama,Member Technical Staff 2,2018-05-23,2022-06-07,Exited,Personal Reasons,6.3,3,A,Female,37
-EMP0291,Karthik Patel,Software Development Department,Hyderabad / Secunderabad,Data Engineer,2021-07-28,,Active,,7.8,3,A,Male,50
-EMP0292,Vikram Reddy,Business Intelligence & Analytics Department,Nandigama,Software Developer,2019-03-23,,Active,,5.3,3,B,Female,32
-EMP0293,Karthik Singh,Marketing Department,Nandigama,SDE-2,2018-05-20,2022-08-01,Exited,Relocation,8.5,4,C,Male,43
-EMP0294,Ananya Sharma,Engineering Department,Nandigama,Software Engineer,2019-04-25,2024-06-11,Exited,Compensation,7.6,4,C,Female,23
-EMP0295,Krishna Sharma,Product Management - Technology Department,Bangalore / Bengaluru,SDE-2,2020-03-24,2022-05-22,Exited,Work-Life Balance,5.7,4,A,Female,37
-EMP0296,Arjun Reddy,Business Intelligence & Analytics Department,Hyderabad / Secunderabad,Senior Software Engineer,2018-08-07,,Active,,6.8,3,B,Female,23
-EMP0297,Diya Reddy,Data Department,Hyderabad / Secunderabad,Associate Project Manager,2019-04-10,2023-02-18,Exited,Compensation,4.6,4,B,Male,48
-EMP0298,Meera Singh,Business Intelligence & Analytics Department,Nandigama,Principal Software Engineer,2021-12-21,,Active,,8.2,2,C,Female,41
-EMP0299,Rohan Iyer,Marketing Department,Nandigama,HR Executive,2020-01-03,2024-04-08,Exited,Relocation,4.5,4,A,Female,26
-EMP0300,Sneha Iyer,Marketing Department,Bangalore / Bengaluru,QA Engineer,2019-07-09,2021-01-03,Exited,Compensation,7.4,4,C,Male,30
+EMP0001,Lakshmi Singh,Technology / IT Department,Nandigama,Associate,2021-10-09,,Active,,4.2,2,C,Female,22
+EMP0002,Riya Patel,HR Operations Department,Bangalore / Bengaluru,Associate,2018-03-26,2023-06-22,Exited,Work-Life Balance,5.4,1,B,Male,44
+EMP0003,Lakshmi Sharma,Production & Manufacturing Department,Nandigama,Senior Talent Partner,2021-11-28,2024-09-16,Exited,Work-Life Balance,7.5,2,A,Male,43
+EMP0004,Rohan Sharma,IT Support Department,Nandigama,Software Developer,2023-03-30,,Active,,6.1,2,A,Female,43
+EMP0005,Siddharth Nair,Data Department,Hyderabad / Secunderabad,Senior QA Engineer,2021-11-20,,Active,,8.6,3,A,Male,49
+EMP0006,Krishna Iyer,Engineering Department,Nandigama,Data Engineer,2022-10-06,,Active,,6.3,3,B,Male,44
+EMP0007,Aisha Nair,Operations Support Department,Hyderabad / Secunderabad,Senior Talent Partner,2021-11-06,,Active,,8.7,4,B,Male,43
+EMP0008,Meera Sharma,Recruitment & Talent Acquisition Department,Bangalore / Bengaluru,Associate Project Manager,2022-02-23,,Active,,6.0,4,B,Female,47
+EMP0009,Siddharth Reddy,IT Support Department,Hyderabad / Secunderabad,Software Engineer,2022-03-23,,Active,,4.7,2,A,Male,38
+EMP0010,Pooja Patel,Operations Support Department,Hyderabad / Secunderabad,Senior Quality Engineer,2021-12-21,,Active,,5.4,3,A,Male,28
+EMP0011,Rahul Reddy,Software Development Department,Bangalore / Bengaluru,Data Engineer,2018-11-12,,Active,,8.5,3,A,Male,46
+EMP0012,Krishna Patel,DBA / Data warehousing Department,Hyderabad / Secunderabad,QA Engineer,2019-03-12,,Active,,7.7,5,B,Female,32
+EMP0013,Meera Sharma,Software Development Department,Bangalore / Bengaluru,HR Executive,2023-03-11,,Active,,6.5,2,C,Male,25
+EMP0014,Karthik Iyer,Data Science & Machine Learning Department,Bangalore / Bengaluru,Software Development Engineer,2020-07-17,2023-02-19,Exited,Better Opportunity,7.9,1,C,Male,29
+EMP0015,Priya Reddy,Technology / IT Department,Nandigama,HR Executive,2022-11-04,,Active,,5.1,5,B,Male,25
+EMP0016,Meera Nair,DBA / Data warehousing Department,Bangalore / Bengaluru,Software Development Engineer 1,2021-12-07,,Active,,6.8,4,B,Female,41
+EMP0017,Aditya Patel,Technology / IT Department,Nandigama,Senior Talent Partner,2019-10-13,2021-11-12,Exited,Relocation,7.5,4,B,Female,44
+EMP0018,Aditya Nair,Product Management - Technology Department,Bangalore / Bengaluru,HR Executive,2021-01-11,,Active,,8.0,4,C,Male,34
+EMP0019,Pooja Patel,Operations Support Department,Hyderabad / Secunderabad,Senior Talent Partner,2022-05-20,,Active,,6.8,3,C,Male,41
+EMP0020,Meera Patel,HR Operations Department,Hyderabad / Secunderabad,SDE,2023-05-05,2024-11-11,Exited,Compensation,5.5,5,C,Male,35
+EMP0021,Ananya Sharma,Quality Assurance and Testing Department,Bangalore / Bengaluru,Senior Talent Partner,2021-06-19,2023-05-11,Exited,Relocation,8.9,2,A,Female,50
+EMP0022,Karthik Reddy,Business Intelligence & Analytics Department,Nandigama,Senior Talent Partner,2019-04-05,,Active,,5.4,3,C,Female,46
+EMP0023,Rahul Reddy,DBA / Data warehousing Department,Nandigama,Software Development Engineer II,2018-08-11,2023-01-21,Exited,Relocation,7.6,5,C,Female,29
+EMP0024,Sneha Nair,Business Intelligence & Analytics Department,Bangalore / Bengaluru,SDE-2,2019-03-11,,Active,,4.3,1,C,Female,33
+EMP0025,Arjun Singh,Recruitment & Talent Acquisition Department,Hyderabad / Secunderabad,Junior Engineer,2021-11-19,,Active,,8.7,3,A,Male,47
+EMP0026,Diya Singh,Business Intelligence & Analytics Department,Nandigama,Data Analyst 1,2021-02-07,,Active,,5.3,4,B,Female,24
+EMP0027,Aditya Nair,Recruitment & Talent Acquisition Department,Hyderabad / Secunderabad,Member Technical Staff 2,2023-06-09,,Active,,6.1,3,A,Female,49
+EMP0028,Aisha Iyer,Operations Support Department,Bangalore / Bengaluru,Senior Software Engineer,2022-10-09,,Active,,4.7,2,A,Male,48
+EMP0029,Meera Reddy,Data Science & Analytics - Other Department,Nandigama,Senior Quality Engineer,2018-06-05,2019-03-25,Exited,Better Opportunity,4.9,4,C,Male,45
+EMP0030,Aarav Singh,Data Department,Nandigama,UI UX Developer,2019-12-08,2022-03-08,Exited,Relocation,5.3,2,A,Male,47
+EMP0031,Aisha Singh,Recruitment & Talent Acquisition Department,Nandigama,Technical Staff Member 3,2020-05-03,2023-11-16,Exited,Better Opportunity,5.7,2,A,Male,50
+EMP0032,Aarav Singh,Data Science & Analytics - Other Department,Hyderabad / Secunderabad,Principal Software Engineer,2023-04-15,,Active,,5.0,2,C,Female,31
+EMP0033,Diya Reddy,Product Management - Technology Department,Hyderabad / Secunderabad,Lead Software Engineer,2018-07-20,2021-10-15,Exited,Compensation,5.1,1,B,Female,40
+EMP0034,Pooja Singh,Data Department,Bangalore / Bengaluru,Software Developer,2020-07-17,2022-06-27,Exited,Compensation,8.2,4,A,Female,24
+EMP0035,Karthik Nair,HR Operations Department,Hyderabad / Secunderabad,Senior Software Engineer,2019-06-27,,Active,,6.6,3,A,Male,22
+EMP0036,Rahul Reddy,Data Department,Bangalore / Bengaluru,UI UX Developer,2022-07-09,2024-05-05,Exited,Better Opportunity,5.0,1,B,Female,35
+EMP0037,Vivaan Nair,IT Support Department,Hyderabad / Secunderabad,Member Technical Staff 2,2022-09-03,,Active,,4.6,4,C,Male,29
+EMP0038,Aditya Singh,Marketing Department,Bangalore / Bengaluru,Associate Project Manager,2023-01-07,,Active,,7.8,3,A,Male,46
+EMP0039,Krishna Singh,Quality Assurance and Testing Department,Hyderabad / Secunderabad,Principal Software Engineer,2020-08-22,2021-11-01,Exited,Better Opportunity,6.4,3,B,Female,47
+EMP0040,Pooja Iyer,Recruitment & Talent Acquisition Department,Nandigama,Associate Project Manager,2023-04-26,,Active,,7.0,5,C,Male,43
+EMP0041,Aditya Patel,IT Support Department,Bangalore / Bengaluru,Senior Quality Engineer,2021-05-27,2024-03-17,Exited,Better Opportunity,4.8,5,C,Female,32
+EMP0042,Aditya Patel,DBA / Data warehousing Department,Bangalore / Bengaluru,Quality Engineer,2021-02-19,,Active,,7.9,4,A,Female,29
+EMP0043,Rahul Reddy,UI / UX Department,Nandigama,Principal Software Engineer,2020-05-08,,Active,,8.7,1,A,Male,22
+EMP0044,Arjun Sharma,Quality Assurance and Testing Department,Hyderabad / Secunderabad,Software Development Engineer 1,2018-12-25,2019-10-25,Exited,Better Opportunity,8.4,1,C,Female,48
+EMP0045,Pooja Iyer,IT Support Department,Nandigama,HR Executive,2023-04-25,2024-03-23,Exited,Personal Reasons,5.1,5,A,Male,38
+EMP0046,Ananya Iyer,DBA / Data warehousing Department,Nandigama,Data Analyst 1,2022-06-14,2022-12-31,Exited,Relocation,8.8,1,A,Male,35
+EMP0047,Rohan Singh,Technology / IT Department,Nandigama,Data Analyst 1,2019-05-10,2024-08-25,Exited,Compensation,4.9,1,A,Male,35
+EMP0048,Ishaan Patel,Technology / IT Department,Hyderabad / Secunderabad,Associate,2019-07-17,,Active,,5.5,2,B,Male,26
+EMP0049,Aarav Patel,Quality Assurance and Testing Department,Hyderabad / Secunderabad,Software Developer,2023-02-08,,Active,,5.3,2,B,Female,41
+EMP0050,Rohan Singh,Data Science & Analytics - Other Department,Bangalore / Bengaluru,Associate,2020-10-06,,Active,,6.4,5,A,Female,39
+EMP0051,Siddharth Reddy,Technology / IT Department,Nandigama,Junior Engineer,2020-02-16,2020-11-03,Exited,Better Opportunity,5.2,2,B,Male,41
+EMP0052,Aisha Iyer,Recruitment & Talent Acquisition Department,Nandigama,Lead Software Engineer,2021-06-08,2024-06-29,Exited,Personal Reasons,4.8,4,A,Male,47
+EMP0053,Aisha Reddy,Operations Support Department,Bangalore / Bengaluru,Marketing Executive,2023-01-01,2024-05-31,Exited,Personal Reasons,7.6,1,A,Male,26
+EMP0054,Pooja Patel,IT Support Department,Nandigama,Associate Project Manager,2022-10-11,,Active,,5.6,4,A,Male,46
+EMP0055,Krishna Nair,Operations Support Department,Hyderabad / Secunderabad,Front end Engineer,2019-06-16,2022-06-11,Exited,Compensation,4.5,5,C,Female,22
+EMP0056,Diya Iyer,Quality Assurance and Testing Department,Nandigama,SDE,2018-03-04,2022-04-25,Exited,Better Opportunity,7.3,3,A,Male,31
+EMP0057,Krishna Reddy,Marketing Department,Nandigama,Sdet,2018-08-31,2021-04-16,Exited,Compensation,7.7,4,B,Male,45
+EMP0058,Aditya Patel,Recruitment & Talent Acquisition Department,Hyderabad / Secunderabad,UI UX Developer,2020-10-24,2024-07-16,Exited,Personal Reasons,6.8,3,B,Female,44
+EMP0059,Karthik Reddy,Product Management - Technology Department,Bangalore / Bengaluru,Senior Software Engineer,2021-01-23,2023-08-14,Exited,Work-Life Balance,5.4,3,A,Female,24
+EMP0060,Rohan Sharma,Data Science & Machine Learning Department,Bangalore / Bengaluru,Data Engineer,2019-02-09,,Active,,4.2,4,A,Male,36
+EMP0061,Riya Singh,Quality Assurance and Testing Department,Nandigama,Technical Staff Member 3,2021-09-18,,Active,,4.7,1,A,Male,39
+EMP0062,Aisha Nair,Data Science & Machine Learning Department,Nandigama,Senior QA Engineer,2023-04-15,,Active,,4.4,1,C,Male,25
+EMP0063,Vikram Iyer,Technology / IT Department,Nandigama,SDE-2,2021-10-27,,Active,,8.8,2,C,Male,45
+EMP0064,Pooja Singh,Data Science & Analytics - Other Department,Nandigama,Senior QA Engineer,2019-12-02,,Active,,8.3,4,C,Female,32
+EMP0065,Meera Singh,Marketing Department,Bangalore / Bengaluru,Software Development Engineer,2021-12-17,2024-02-14,Exited,Relocation,8.7,2,C,Male,42
+EMP0066,Rohan Iyer,Engineering Department,Hyderabad / Secunderabad,UI UX Developer,2018-11-07,,Active,,7.4,3,A,Female,46
+EMP0067,Pooja Reddy,Product Management - Technology Department,Hyderabad / Secunderabad,Software Engineer,2020-12-25,,Active,,8.8,5,C,Female,38
+EMP0068,Aditya Singh,Production & Manufacturing Department,Nandigama,Principal Engineer,2021-05-25,,Active,,4.7,3,C,Female,45
+EMP0069,Diya Iyer,DBA / Data warehousing Department,Bangalore / Bengaluru,Software Development Engineer II,2018-02-02,,Active,,7.2,4,A,Female,33
+EMP0070,Aisha Patel,UI / UX Department,Hyderabad / Secunderabad,Software Development Engineer 1,2019-03-18,2020-09-24,Exited,Personal Reasons,4.3,1,B,Male,33
+EMP0071,Diya Nair,Data Department,Hyderabad / Secunderabad,Principal Engineer,2022-11-21,,Active,,4.8,3,C,Female,32
+EMP0072,Siddharth Iyer,Data Science & Machine Learning Department,Bangalore / Bengaluru,Sdet,2020-03-25,,Active,,7.3,2,C,Female,49
+EMP0073,Siddharth Singh,IT Support Department,Hyderabad / Secunderabad,Software Development Engineer,2022-06-24,,Active,,7.3,5,B,Female,35
+EMP0074,Vivaan Iyer,Data Science & Machine Learning Department,Nandigama,Data Analyst 1,2018-11-14,2022-06-24,Exited,Work-Life Balance,6.3,5,C,Male,30
+EMP0075,Rahul Singh,Software Development Department,Hyderabad / Secunderabad,Software Engineer,2018-10-06,2023-02-04,Exited,Compensation,8.6,2,C,Male,32
+EMP0076,Pooja Sharma,Data Science & Machine Learning Department,Nandigama,Junior Engineer,2019-06-30,,Active,,6.3,1,C,Male,50
+EMP0077,Sneha Iyer,Recruitment & Talent Acquisition Department,Nandigama,Software Engineer,2021-03-28,,Active,,4.1,3,C,Male,45
+EMP0078,Siddharth Nair,Quality Assurance and Testing Department,Nandigama,Senior Talent Partner,2021-03-21,2022-09-13,Exited,Compensation,8.5,4,A,Female,48
+EMP0079,Priya Sharma,Technology / IT Department,Hyderabad / Secunderabad,SDE,2020-05-15,2024-03-31,Exited,Relocation,8.4,1,C,Female,23
+EMP0080,Aditya Reddy,Data Department,Nandigama,Quality Engineer,2022-09-24,,Active,,8.1,2,A,Male,44
+EMP0081,Siddharth Reddy,UI / UX Department,Nandigama,Software Development Engineer,2019-05-03,2022-02-10,Exited,Personal Reasons,7.7,3,A,Male,28
+EMP0082,Meera Reddy,IT Support Department,Bangalore / Bengaluru,Senior Software Engineer,2021-06-10,,Active,,4.9,5,C,Female,47
+EMP0083,Pooja Singh,Data Science & Machine Learning Department,Hyderabad / Secunderabad,Software Development Engineer II,2018-06-19,,Active,,6.5,1,A,Female,26
+EMP0084,Vivaan Reddy,UI / UX Department,Nandigama,Marketing Executive,2018-04-28,,Active,,8.3,2,B,Male,49
+EMP0085,Aarav Sharma,UI / UX Department,Hyderabad / Secunderabad,Software Developer,2020-10-01,2021-11-06,Exited,Better Opportunity,5.5,2,B,Female,22
+EMP0086,Krishna Iyer,Software Development Department,Hyderabad / Secunderabad,QA Engineer,2018-03-09,,Active,,4.2,1,C,Female,35
+EMP0087,Karthik Reddy,Software Development Department,Hyderabad / Secunderabad,UI UX Developer,2019-05-14,2020-01-14,Exited,Personal Reasons,6.0,3,A,Male,32
+EMP0088,Vivaan Sharma,Operations Support Department,Bangalore / Bengaluru,Technical Staff Member 3,2019-03-24,,Active,,7.7,2,C,Male,49
+EMP0089,Siddharth Nair,Quality Assurance and Testing Department,Nandigama,QA Engineer,2021-03-02,,Active,,5.2,5,A,Female,40
+EMP0090,Aditya Sharma,Recruitment & Talent Acquisition Department,Hyderabad / Secunderabad,UI UX Developer,2021-07-13,2022-11-08,Exited,Work-Life Balance,8.3,5,B,Male,34
+EMP0091,Krishna Sharma,Engineering Department,Bangalore / Bengaluru,Marketing Executive,2018-12-27,2022-12-28,Exited,Compensation,4.8,1,A,Female,28
+EMP0092,Arjun Iyer,Data Department,Nandigama,Sdet,2022-08-27,,Active,,8.3,4,B,Male,47
+EMP0093,Lakshmi Iyer,Product Management - Technology Department,Hyderabad / Secunderabad,Principal Software Engineer,2019-04-30,2019-12-18,Exited,Relocation,6.9,4,B,Female,48
+EMP0094,Riya Sharma,Technology / IT Department,Nandigama,Senior QA Engineer,2022-01-25,,Active,,8.1,5,A,Female,35
+EMP0095,Ananya Iyer,Operations Support Department,Hyderabad / Secunderabad,Data Engineer,2023-05-22,,Active,,4.6,2,A,Female,45
+EMP0096,Vivaan Singh,Recruitment & Talent Acquisition Department,Hyderabad / Secunderabad,Software Development Engineer 1,2019-09-28,,Active,,6.1,3,A,Female,50
+EMP0097,Sneha Reddy,Marketing Department,Nandigama,Front end Engineer,2019-01-10,,Active,,8.7,2,A,Male,46
+EMP0098,Siddharth Patel,DBA / Data warehousing Department,Bangalore / Bengaluru,Senior Software Engineer,2022-05-12,,Active,,7.0,2,B,Male,24
+EMP0099,Ishaan Reddy,Technology / IT Department,Bangalore / Bengaluru,Associate Project Manager,2022-02-05,,Active,,7.2,5,C,Female,24
+EMP0100,Riya Iyer,Data Department,Hyderabad / Secunderabad,Software Developer,2022-12-27,,Active,,5.7,5,C,Female,35
+EMP0101,Sneha Patel,Engineering Department,Nandigama,Member Technical Staff 2,2021-01-09,2024-03-27,Exited,Relocation,4.4,5,B,Male,38
+EMP0102,Ananya Nair,Quality Assurance and Testing Department,Nandigama,Data Analyst,2019-03-08,2023-10-19,Exited,Better Opportunity,8.0,1,B,Male,47
+EMP0103,Karthik Reddy,Quality Assurance and Testing Department,Hyderabad / Secunderabad,Data Analyst 1,2023-04-02,,Active,,8.8,2,C,Male,26
+EMP0104,Sneha Reddy,Data Department,Hyderabad / Secunderabad,Principal Engineer,2019-07-07,,Active,,5.8,1,A,Male,38
+EMP0105,Riya Iyer,DBA / Data warehousing Department,Hyderabad / Secunderabad,Software Developer,2021-11-11,,Active,,7.9,2,C,Female,48
+EMP0106,Priya Singh,DBA / Data warehousing Department,Bangalore / Bengaluru,Senior Talent Partner,2022-09-03,,Active,,7.7,3,A,Female,47
+EMP0107,Priya Singh,DBA / Data warehousing Department,Bangalore / Bengaluru,HR Executive,2021-12-16,,Active,,6.4,3,A,Female,22
+EMP0108,Rahul Sharma,Marketing Department,Bangalore / Bengaluru,Senior QA Engineer,2019-09-08,2021-12-02,Exited,Better Opportunity,7.6,1,C,Male,48
+EMP0109,Sneha Singh,Product Management - Technology Department,Nandigama,QA Engineer,2021-09-26,,Active,,4.2,4,A,Female,49
+EMP0110,Rohan Sharma,Software Development Department,Hyderabad / Secunderabad,SDE-2,2022-02-24,,Active,,5.5,4,A,Male,33
+EMP0111,Vikram Iyer,DBA / Data warehousing Department,Hyderabad / Secunderabad,Software Development Engineer 1,2018-09-03,2023-06-15,Exited,Personal Reasons,5.6,5,B,Male,46
+EMP0112,Rohan Singh,Recruitment & Talent Acquisition Department,Nandigama,SDE-2,2019-03-30,2024-07-05,Exited,Personal Reasons,6.9,3,C,Male,44
+EMP0113,Aditya Singh,IT Support Department,Nandigama,Senior Quality Engineer,2021-05-06,,Active,,8.0,2,C,Male,47
+EMP0114,Rahul Reddy,Quality Assurance and Testing Department,Bangalore / Bengaluru,Senior Software Engineer,2023-05-26,,Active,,5.7,1,A,Male,26
+EMP0115,Sneha Iyer,Data Science & Analytics - Other Department,Bangalore / Bengaluru,Junior Engineer,2021-04-25,2024-11-04,Exited,Relocation,5.0,4,A,Female,37
+EMP0116,Priya Nair,Technology / IT Department,Bangalore / Bengaluru,Front end Engineer,2018-09-04,,Active,,8.2,5,A,Male,39
+EMP0117,Ishaan Iyer,Production & Manufacturing Department,Nandigama,Data Analyst 1,2019-09-09,2021-04-07,Exited,Relocation,4.2,1,A,Male,30
+EMP0118,Sneha Sharma,Software Development Department,Bangalore / Bengaluru,Lead Software Engineer,2021-05-24,,Active,,8.6,2,C,Male,47
+EMP0119,Arjun Nair,UI / UX Department,Hyderabad / Secunderabad,UI UX Developer,2018-09-03,2023-05-07,Exited,Relocation,5.7,1,B,Female,28
+EMP0120,Lakshmi Patel,Data Department,Nandigama,Principal Engineer,2018-01-06,2019-05-05,Exited,Relocation,6.4,2,A,Female,43
+EMP0121,Rahul Singh,Recruitment & Talent Acquisition Department,Nandigama,Senior Talent Partner,2022-05-01,,Active,,7.2,2,A,Female,50
+EMP0122,Priya Nair,Quality Assurance and Testing Department,Hyderabad / Secunderabad,UI UX Developer,2022-07-25,,Active,,6.7,5,B,Female,48
+EMP0123,Karthik Sharma,Operations Support Department,Hyderabad / Secunderabad,Principal Engineer,2021-11-05,,Active,,7.3,1,A,Male,36
+EMP0124,Priya Reddy,Marketing Department,Hyderabad / Secunderabad,Data Analyst 1,2021-08-01,2024-12-05,Exited,Better Opportunity,4.2,4,C,Female,24
+EMP0125,Meera Reddy,IT Support Department,Nandigama,Data Engineer,2020-02-15,,Active,,7.8,5,C,Female,36
+EMP0126,Riya Reddy,Data Department,Nandigama,Senior Quality Engineer,2022-11-07,,Active,,5.8,4,C,Female,46
+EMP0127,Pooja Nair,UI / UX Department,Bangalore / Bengaluru,Software Development Engineer,2020-10-27,,Active,,4.8,1,C,Female,30
+EMP0128,Priya Patel,Recruitment & Talent Acquisition Department,Bangalore / Bengaluru,SDE,2021-10-24,2023-07-21,Exited,Better Opportunity,4.7,2,C,Male,40
+EMP0129,Arjun Sharma,Engineering Department,Hyderabad / Secunderabad,Senior Software Engineer,2019-11-17,,Active,,6.0,4,C,Female,27
+EMP0130,Ananya Nair,Product Management - Technology Department,Nandigama,Senior QA Engineer,2023-06-22,,Active,,6.3,4,C,Male,38
+EMP0131,Lakshmi Patel,Operations Support Department,Nandigama,Associate Project Manager,2021-05-28,,Active,,5.8,3,B,Male,33
+EMP0132,Karthik Reddy,Technology / IT Department,Hyderabad / Secunderabad,Data Analyst 1,2019-01-30,,Active,,5.6,2,C,Male,22
+EMP0133,Ishaan Sharma,Data Science & Analytics - Other Department,Bangalore / Bengaluru,Lead Software Engineer,2019-12-22,2021-06-20,Exited,Better Opportunity,8.5,1,C,Female,42
+EMP0134,Rahul Reddy,Operations Support Department,Nandigama,Software Development Engineer,2019-04-15,2022-06-09,Exited,Better Opportunity,4.9,3,A,Male,28
+EMP0135,Riya Nair,Operations Support Department,Nandigama,Member Technical Staff 2,2019-02-12,,Active,,4.4,1,C,Female,34
+EMP0136,Rohan Reddy,Marketing Department,Nandigama,Technical Staff Member 3,2023-05-26,,Active,,8.8,2,C,Male,22
+EMP0137,Lakshmi Nair,Quality Assurance and Testing Department,Bangalore / Bengaluru,Software Engineer,2020-01-11,,Active,,4.4,5,B,Male,44
+EMP0138,Rohan Sharma,Operations Support Department,Hyderabad / Secunderabad,Marketing Executive,2022-09-20,,Active,,4.7,5,B,Female,28
+EMP0139,Priya Singh,Operations Support Department,Hyderabad / Secunderabad,Senior QA Engineer,2022-05-02,2023-12-01,Exited,Better Opportunity,5.7,1,A,Male,35
+EMP0140,Rohan Sharma,Marketing Department,Nandigama,Senior QA Engineer,2021-12-08,,Active,,4.5,4,B,Male,24
+EMP0141,Siddharth Singh,Engineering Department,Bangalore / Bengaluru,Data Analyst,2022-11-08,,Active,,4.2,5,A,Male,40
+EMP0142,Sneha Reddy,HR Operations Department,Bangalore / Bengaluru,Software Development Engineer,2018-12-02,2023-09-21,Exited,Compensation,6.5,5,A,Male,25
+EMP0143,Arjun Sharma,IT Support Department,Hyderabad / Secunderabad,Software Developer,2018-06-07,2021-07-10,Exited,Relocation,5.3,4,C,Female,28
+EMP0144,Aisha Patel,Software Development Department,Bangalore / Bengaluru,Technical Staff Member 3,2018-08-03,,Active,,5.6,3,A,Male,39
+EMP0145,Ananya Reddy,IT Support Department,Bangalore / Bengaluru,Lead Software Engineer,2020-11-03,,Active,,5.3,4,A,Female,50
+EMP0146,Rohan Singh,Data Science & Analytics - Other Department,Hyderabad / Secunderabad,Principal Engineer,2023-04-15,,Active,,7.0,1,B,Male,40
+EMP0147,Priya Nair,Data Science & Machine Learning Department,Hyderabad / Secunderabad,Principal Engineer,2020-12-26,2024-12-02,Exited,Relocation,7.0,4,B,Female,46
+EMP0148,Vikram Patel,Software Development Department,Hyderabad / Secunderabad,Data Engineer,2022-05-12,2022-12-28,Exited,Better Opportunity,4.2,1,B,Male,28
+EMP0149,Pooja Sharma,Business Intelligence & Analytics Department,Nandigama,Technical Staff Member 3,2020-06-03,,Active,,4.0,5,C,Male,45
+EMP0150,Vivaan Sharma,Technology / IT Department,Bangalore / Bengaluru,Junior Engineer,2019-07-06,,Active,,8.3,3,A,Female,48
+EMP0151,Aarav Singh,IT Support Department,Nandigama,Software Development Engineer,2018-02-14,2019-09-29,Exited,Better Opportunity,7.4,1,B,Male,45
+EMP0152,Meera Nair,Marketing Department,Nandigama,Associate,2022-01-03,,Active,,6.9,2,C,Male,24
+EMP0153,Aisha Iyer,Data Science & Analytics - Other Department,Bangalore / Bengaluru,SDE-2,2019-08-25,,Active,,5.9,2,C,Female,50
+EMP0154,Rahul Iyer,Data Department,Bangalore / Bengaluru,Principal Engineer,2021-01-10,,Active,,8.7,2,A,Male,29
+EMP0155,Sneha Nair,Data Department,Bangalore / Bengaluru,SDE-2,2020-09-12,2021-08-13,Exited,Relocation,8.1,5,A,Male,39
+EMP0156,Krishna Sharma,Operations Support Department,Bangalore / Bengaluru,Software Development Engineer,2020-03-31,,Active,,7.6,3,C,Male,40
+EMP0157,Riya Patel,Software Development Department,Nandigama,Software Development Engineer 1,2019-01-12,,Active,,4.7,5,C,Male,36
+EMP0158,Karthik Patel,Recruitment & Talent Acquisition Department,Nandigama,Senior Software Engineer,2018-01-10,2021-03-22,Exited,Relocation,5.5,1,A,Female,47
+EMP0159,Riya Singh,Data Department,Nandigama,Associate Project Manager,2020-09-18,2023-03-06,Exited,Work-Life Balance,6.2,5,C,Male,49
+EMP0160,Priya Nair,HR Operations Department,Hyderabad / Secunderabad,Software Development Engineer 1,2018-09-20,2021-06-06,Exited,Relocation,7.2,3,A,Female,48
+EMP0161,Ananya Nair,HR Operations Department,Bangalore / Bengaluru,QA Engineer,2022-10-19,,Active,,8.0,1,C,Male,41
+EMP0162,Karthik Sharma,Production & Manufacturing Department,Nandigama,Data Analyst,2022-07-28,,Active,,7.5,4,B,Male,36
+EMP0163,Arjun Iyer,IT Support Department,Nandigama,Senior Talent Partner,2021-06-24,2022-02-26,Exited,Compensation,8.6,2,A,Female,38
+EMP0164,Lakshmi Patel,Quality Assurance and Testing Department,Nandigama,Sdet,2021-12-23,,Active,,8.5,1,A,Male,30
+EMP0165,Pooja Patel,Recruitment & Talent Acquisition Department,Bangalore / Bengaluru,Software Development Engineer 1,2023-04-21,,Active,,5.6,1,B,Male,23
+EMP0166,Riya Reddy,HR Operations Department,Bangalore / Bengaluru,QA Engineer,2023-06-08,,Active,,4.3,5,C,Female,43
+EMP0167,Karthik Nair,IT Support Department,Hyderabad / Secunderabad,Principal Software Engineer,2018-09-20,2019-06-02,Exited,Work-Life Balance,8.4,3,A,Male,50
+EMP0168,Arjun Iyer,UI / UX Department,Hyderabad / Secunderabad,Software Development Engineer 1,2021-06-12,2022-11-21,Exited,Better Opportunity,8.5,4,A,Male,36
+EMP0169,Meera Patel,Recruitment & Talent Acquisition Department,Bangalore / Bengaluru,Technical Staff Member 3,2019-02-05,2021-03-07,Exited,Work-Life Balance,5.7,2,A,Male,48
+EMP0170,Aisha Patel,Data Science & Analytics - Other Department,Bangalore / Bengaluru,Sdet,2019-10-25,2022-06-22,Exited,Compensation,6.3,4,B,Male,28
+EMP0171,Rohan Singh,Data Science & Machine Learning Department,Nandigama,Software Engineer,2022-10-01,,Active,,6.6,2,C,Male,50
+EMP0172,Ishaan Iyer,Quality Assurance and Testing Department,Bangalore / Bengaluru,Data Analyst,2021-11-22,2024-03-30,Exited,Better Opportunity,8.6,3,A,Male,42
+EMP0173,Rohan Reddy,Quality Assurance and Testing Department,Nandigama,Senior QA Engineer,2020-02-12,2021-11-23,Exited,Better Opportunity,5.1,1,B,Male,42
+EMP0174,Arjun Iyer,Marketing Department,Nandigama,Software Engineer,2018-07-28,,Active,,6.0,2,C,Male,39
+EMP0175,Pooja Reddy,DBA / Data warehousing Department,Nandigama,Data Engineer,2022-07-09,,Active,,7.7,3,A,Female,40
+EMP0176,Arjun Singh,Business Intelligence & Analytics Department,Hyderabad / Secunderabad,HR Executive,2021-01-12,2022-10-14,Exited,Compensation,6.3,3,B,Male,38
+EMP0177,Rohan Nair,Marketing Department,Bangalore / Bengaluru,Technical Staff Member 3,2019-03-12,,Active,,5.9,1,B,Female,37
+EMP0178,Rahul Sharma,UI / UX Department,Hyderabad / Secunderabad,Principal Engineer,2020-03-21,,Active,,6.9,5,B,Female,23
+EMP0179,Aarav Nair,Marketing Department,Bangalore / Bengaluru,QA Engineer,2021-03-21,2023-02-22,Exited,Work-Life Balance,5.0,2,A,Male,23
+EMP0180,Sneha Singh,Operations Support Department,Hyderabad / Secunderabad,Data Analyst,2019-03-20,,Active,,8.1,3,B,Male,40
+EMP0181,Karthik Nair,Technology / IT Department,Bangalore / Bengaluru,Software Development Engineer 1,2021-10-05,,Active,,5.5,4,C,Male,26
+EMP0182,Karthik Reddy,Marketing Department,Nandigama,Principal Engineer,2022-07-28,,Active,,8.9,5,B,Male,28
+EMP0183,Diya Sharma,Data Department,Bangalore / Bengaluru,UI UX Developer,2018-01-10,,Active,,6.9,2,A,Male,37
+EMP0184,Karthik Patel,Production & Manufacturing Department,Bangalore / Bengaluru,Quality Engineer,2018-01-17,,Active,,8.4,5,B,Female,24
+EMP0185,Aditya Patel,UI / UX Department,Bangalore / Bengaluru,Senior Software Engineer,2019-01-08,2023-02-14,Exited,Compensation,7.3,5,C,Male,33
+EMP0186,Sneha Iyer,IT Support Department,Nandigama,QA Engineer,2019-12-31,2023-12-13,Exited,Relocation,8.8,2,C,Male,30
+EMP0187,Priya Reddy,Engineering Department,Hyderabad / Secunderabad,Lead Software Engineer,2019-04-24,2023-09-26,Exited,Personal Reasons,4.3,4,B,Male,25
+EMP0188,Meera Patel,UI / UX Department,Hyderabad / Secunderabad,Sdet,2018-11-26,,Active,,6.3,5,A,Male,22
+EMP0189,Rohan Sharma,UI / UX Department,Bangalore / Bengaluru,SDE-2,2019-05-07,,Active,,5.0,1,A,Male,35
+EMP0190,Riya Reddy,Software Development Department,Hyderabad / Secunderabad,Software Engineer,2020-11-30,,Active,,6.4,4,A,Male,41
+EMP0191,Aditya Patel,DBA / Data warehousing Department,Hyderabad / Secunderabad,Associate Project Manager,2022-04-08,,Active,,4.4,2,B,Male,31
+EMP0192,Krishna Reddy,UI / UX Department,Bangalore / Bengaluru,Member Technical Staff 2,2023-02-11,,Active,,5.1,4,B,Male,28
+EMP0193,Sneha Patel,Business Intelligence & Analytics Department,Hyderabad / Secunderabad,Software Development Engineer II,2020-06-12,,Active,,7.8,3,A,Female,47
+EMP0194,Aarav Nair,Engineering Department,Bangalore / Bengaluru,Software Engineer,2018-11-29,2021-02-14,Exited,Personal Reasons,4.1,4,C,Female,42
+EMP0195,Siddharth Singh,Software Development Department,Hyderabad / Secunderabad,Senior Software Engineer,2020-06-17,,Active,,8.0,2,C,Male,24
+EMP0196,Sneha Singh,Data Science & Machine Learning Department,Hyderabad / Secunderabad,Data Analyst,2021-07-21,,Active,,6.4,5,B,Female,46
+EMP0197,Aisha Iyer,Business Intelligence & Analytics Department,Hyderabad / Secunderabad,Data Engineer,2021-12-12,,Active,,5.9,4,A,Male,22
+EMP0198,Pooja Nair,Quality Assurance and Testing Department,Nandigama,Junior Engineer,2020-05-19,,Active,,6.3,2,C,Male,50
+EMP0199,Ananya Iyer,Business Intelligence & Analytics Department,Bangalore / Bengaluru,Senior Software Engineer,2020-12-27,,Active,,7.4,4,A,Male,39
+EMP0200,Meera Singh,HR Operations Department,Bangalore / Bengaluru,Data Analyst 1,2020-05-31,,Active,,5.4,3,B,Male,47
+EMP0201,Aditya Nair,Data Science & Machine Learning Department,Hyderabad / Secunderabad,Data Analyst 1,2023-01-27,,Active,,7.5,1,C,Male,47
+EMP0202,Priya Singh,Data Department,Hyderabad / Secunderabad,Software Development Engineer II,2020-01-05,2023-07-16,Exited,Relocation,9.0,4,B,Female,48
+EMP0203,Aarav Singh,Marketing Department,Bangalore / Bengaluru,Software Development Engineer II,2019-12-30,,Active,,6.9,4,C,Female,22
+EMP0204,Aisha Patel,Business Intelligence & Analytics Department,Nandigama,Data Analyst,2021-09-05,,Active,,6.8,1,C,Female,34
+EMP0205,Lakshmi Reddy,Operations Support Department,Nandigama,Data Analyst 1,2021-12-31,,Active,,6.0,4,C,Male,42
+EMP0206,Krishna Patel,Data Science & Machine Learning Department,Hyderabad / Secunderabad,Quality Engineer,2022-12-30,,Active,,5.4,5,B,Male,28
+EMP0207,Diya Iyer,Software Development Department,Hyderabad / Secunderabad,Principal Software Engineer,2019-10-23,2022-05-02,Exited,Work-Life Balance,5.8,2,C,Female,29
+EMP0208,Aditya Iyer,Data Science & Machine Learning Department,Nandigama,SDE-2,2021-11-06,,Active,,5.6,5,B,Male,42
+EMP0209,Aarav Reddy,DBA / Data warehousing Department,Hyderabad / Secunderabad,Senior QA Engineer,2020-10-20,2023-08-03,Exited,Compensation,8.8,5,C,Male,25
+EMP0210,Vivaan Sharma,Data Science & Analytics - Other Department,Hyderabad / Secunderabad,Software Development Engineer II,2021-01-31,,Active,,4.4,1,C,Male,45
+EMP0211,Priya Singh,Technology / IT Department,Nandigama,Senior Quality Engineer,2022-02-22,2024-10-31,Exited,Work-Life Balance,4.4,3,A,Male,37
+EMP0212,Aarav Sharma,DBA / Data warehousing Department,Bangalore / Bengaluru,Senior Talent Partner,2020-05-05,2021-01-27,Exited,Personal Reasons,6.0,1,C,Female,33
+EMP0213,Meera Sharma,Technology / IT Department,Bangalore / Bengaluru,Senior QA Engineer,2018-02-23,2020-01-23,Exited,Better Opportunity,7.3,3,B,Female,37
+EMP0214,Meera Nair,Engineering Department,Nandigama,Senior Talent Partner,2022-02-07,2024-10-13,Exited,Compensation,5.4,2,C,Female,38
+EMP0215,Krishna Reddy,Recruitment & Talent Acquisition Department,Bangalore / Bengaluru,UI UX Developer,2022-04-05,,Active,,4.5,1,C,Female,35
+EMP0216,Ananya Singh,Data Science & Analytics - Other Department,Bangalore / Bengaluru,HR Executive,2018-09-19,2021-12-20,Exited,Work-Life Balance,8.6,4,A,Male,30
+EMP0217,Siddharth Sharma,Engineering Department,Nandigama,Software Engineer,2020-07-27,2022-03-18,Exited,Compensation,6.9,5,C,Female,36
+EMP0218,Aditya Patel,Production & Manufacturing Department,Nandigama,Front end Engineer,2018-09-13,,Active,,5.0,1,C,Male,49
+EMP0219,Arjun Iyer,Business Intelligence & Analytics Department,Nandigama,Software Developer,2019-12-10,2025-01-01,Exited,Personal Reasons,6.4,3,C,Male,38
+EMP0220,Diya Singh,Engineering Department,Bangalore / Bengaluru,Senior Software Engineer,2020-02-24,,Active,,4.7,1,C,Male,46
+EMP0221,Riya Reddy,Engineering Department,Nandigama,Sdet,2020-01-08,2024-08-30,Exited,Work-Life Balance,5.4,4,B,Male,45
+EMP0222,Pooja Patel,Technology / IT Department,Bangalore / Bengaluru,Senior Software Engineer,2021-08-17,,Active,,4.5,1,B,Male,50
+EMP0223,Karthik Nair,Technology / IT Department,Nandigama,Senior Talent Partner,2022-01-18,,Active,,7.0,4,B,Male,35
+EMP0224,Vikram Sharma,Production & Manufacturing Department,Bangalore / Bengaluru,UI UX Developer,2019-12-13,,Active,,6.3,5,C,Male,45
+EMP0225,Meera Singh,Engineering Department,Hyderabad / Secunderabad,Technical Staff Member 3,2021-09-11,2024-02-02,Exited,Personal Reasons,6.4,5,A,Female,32
+EMP0226,Priya Sharma,Software Development Department,Hyderabad / Secunderabad,Sdet,2019-10-15,,Active,,7.4,4,A,Female,27
+EMP0227,Rahul Reddy,DBA / Data warehousing Department,Nandigama,Technical Staff Member 3,2020-09-27,2022-01-22,Exited,Personal Reasons,4.6,2,B,Female,40
+EMP0228,Lakshmi Nair,Recruitment & Talent Acquisition Department,Nandigama,Senior Software Engineer,2020-01-21,,Active,,6.9,3,B,Male,34
+EMP0229,Vivaan Sharma,Data Department,Nandigama,Software Development Engineer,2020-05-23,,Active,,8.7,1,C,Female,29
+EMP0230,Sneha Singh,UI / UX Department,Hyderabad / Secunderabad,Quality Engineer,2023-05-26,,Active,,4.8,5,B,Female,43
+EMP0231,Riya Nair,Quality Assurance and Testing Department,Nandigama,Member Technical Staff 2,2021-03-13,,Active,,7.4,4,B,Male,29
+EMP0232,Krishna Nair,Recruitment & Talent Acquisition Department,Nandigama,Associate Project Manager,2019-03-26,,Active,,8.8,1,A,Female,23
+EMP0233,Rohan Sharma,Quality Assurance and Testing Department,Nandigama,Front end Engineer,2019-08-21,,Active,,8.7,2,B,Female,40
+EMP0234,Ananya Sharma,Marketing Department,Bangalore / Bengaluru,Senior Quality Engineer,2021-08-29,2024-02-14,Exited,Better Opportunity,6.7,2,B,Female,24
+EMP0235,Karthik Sharma,Quality Assurance and Testing Department,Hyderabad / Secunderabad,Principal Software Engineer,2022-05-22,,Active,,5.8,4,B,Male,45
+EMP0236,Aditya Patel,IT Support Department,Hyderabad / Secunderabad,SDE-2,2023-05-31,2024-10-15,Exited,Better Opportunity,6.3,5,C,Female,23
+EMP0237,Meera Reddy,Software Development Department,Hyderabad / Secunderabad,Lead Software Engineer,2018-05-27,2019-10-06,Exited,Compensation,6.2,4,C,Male,26
+EMP0238,Krishna Patel,Data Science & Analytics - Other Department,Nandigama,Principal Engineer,2023-06-11,,Active,,8.3,5,C,Male,44
+EMP0239,Riya Sharma,Production & Manufacturing Department,Nandigama,Data Analyst 1,2021-02-10,,Active,,6.4,1,A,Female,37
+EMP0240,Karthik Patel,Data Department,Nandigama,Software Development Engineer 1,2018-03-11,,Active,,6.8,1,A,Female,28
+EMP0241,Diya Patel,Product Management - Technology Department,Hyderabad / Secunderabad,Data Analyst 1,2019-08-04,2023-02-19,Exited,Work-Life Balance,6.7,3,C,Female,26
+EMP0242,Riya Iyer,Software Development Department,Nandigama,Data Engineer,2022-11-27,,Active,,8.7,1,A,Female,34
+EMP0243,Sneha Sharma,UI / UX Department,Nandigama,UI UX Developer,2018-01-21,,Active,,6.5,3,A,Male,23
+EMP0244,Aisha Nair,IT Support Department,Hyderabad / Secunderabad,Principal Software Engineer,2021-07-24,,Active,,7.6,1,B,Female,24
+EMP0245,Vikram Singh,IT Support Department,Bangalore / Bengaluru,SDE-2,2023-03-17,,Active,,6.8,3,C,Female,38
+EMP0246,Lakshmi Reddy,Marketing Department,Nandigama,Software Engineer,2020-01-06,,Active,,4.4,3,B,Female,49
+EMP0247,Pooja Sharma,HR Operations Department,Bangalore / Bengaluru,Principal Software Engineer,2020-08-10,,Active,,8.9,2,A,Male,44
+EMP0248,Siddharth Iyer,Production & Manufacturing Department,Bangalore / Bengaluru,Marketing Executive,2022-11-09,2024-11-09,Exited,Relocation,8.4,2,C,Male,38
+EMP0249,Vivaan Reddy,Quality Assurance and Testing Department,Nandigama,SDE-2,2020-05-22,2021-01-29,Exited,Relocation,7.3,4,C,Female,23
+EMP0250,Riya Reddy,Data Science & Analytics - Other Department,Hyderabad / Secunderabad,Software Development Engineer,2019-03-04,2024-03-27,Exited,Work-Life Balance,5.9,1,C,Female,47
+EMP0251,Aisha Patel,Product Management - Technology Department,Hyderabad / Secunderabad,Senior Software Engineer,2018-12-12,,Active,,4.5,2,B,Male,33
+EMP0252,Krishna Reddy,Engineering Department,Hyderabad / Secunderabad,Quality Engineer,2021-12-21,2023-01-08,Exited,Compensation,7.1,4,B,Female,23
+EMP0253,Ananya Singh,Marketing Department,Bangalore / Bengaluru,SDE-2,2022-09-09,,Active,,4.8,3,A,Female,33
+EMP0254,Vikram Nair,Data Department,Bangalore / Bengaluru,Software Development Engineer II,2018-06-25,2021-01-06,Exited,Better Opportunity,4.5,2,C,Female,28
+EMP0255,Ishaan Singh,Operations Support Department,Hyderabad / Secunderabad,Principal Software Engineer,2018-07-18,,Active,,5.8,2,B,Male,32
+EMP0256,Vikram Nair,Data Department,Nandigama,Senior Quality Engineer,2023-04-26,,Active,,4.0,1,C,Female,27
+EMP0257,Karthik Reddy,Engineering Department,Bangalore / Bengaluru,Member Technical Staff 2,2022-07-16,,Active,,8.9,1,A,Female,30
+EMP0258,Arjun Sharma,Business Intelligence & Analytics Department,Hyderabad / Secunderabad,Junior Engineer,2019-09-28,,Active,,5.9,2,A,Male,47
+EMP0259,Karthik Reddy,Business Intelligence & Analytics Department,Bangalore / Bengaluru,Senior Quality Engineer,2021-11-16,,Active,,5.4,1,C,Male,23
+EMP0260,Rohan Reddy,IT Support Department,Bangalore / Bengaluru,Technical Staff Member 3,2019-05-07,,Active,,8.1,2,A,Male,48
+EMP0261,Karthik Patel,UI / UX Department,Nandigama,Sdet,2021-10-06,,Active,,8.9,3,C,Female,43
+EMP0262,Siddharth Sharma,HR Operations Department,Hyderabad / Secunderabad,QA Engineer,2022-10-15,,Active,,7.8,4,B,Female,28
+EMP0263,Priya Reddy,Operations Support Department,Nandigama,Marketing Executive,2020-06-07,2021-03-09,Exited,Relocation,5.6,2,B,Female,48
+EMP0264,Aditya Singh,DBA / Data warehousing Department,Hyderabad / Secunderabad,Marketing Executive,2018-06-07,2023-09-22,Exited,Relocation,8.8,1,A,Female,26
+EMP0265,Siddharth Singh,UI / UX Department,Hyderabad / Secunderabad,Data Analyst 1,2018-07-22,,Active,,4.4,1,A,Female,35
+EMP0266,Aarav Nair,IT Support Department,Nandigama,Senior QA Engineer,2018-09-20,2020-01-14,Exited,Personal Reasons,8.2,3,B,Female,29
+EMP0267,Arjun Nair,IT Support Department,Nandigama,Data Engineer,2023-03-27,,Active,,6.0,2,B,Female,39
+EMP0268,Pooja Nair,Data Science & Analytics - Other Department,Nandigama,Principal Software Engineer,2021-03-31,,Active,,4.5,1,A,Female,47
+EMP0269,Vikram Sharma,Operations Support Department,Hyderabad / Secunderabad,Principal Engineer,2019-02-16,,Active,,7.5,1,A,Female,47
+EMP0270,Rohan Patel,IT Support Department,Bangalore / Bengaluru,HR Executive,2019-10-24,2020-11-13,Exited,Work-Life Balance,7.1,2,B,Male,25
+EMP0271,Siddharth Nair,Engineering Department,Nandigama,Data Analyst,2020-10-03,,Active,,8.5,1,A,Female,43
+EMP0272,Meera Singh,Marketing Department,Nandigama,Principal Software Engineer,2022-03-20,2024-07-09,Exited,Relocation,8.5,1,C,Female,48
+EMP0273,Vivaan Patel,Technology / IT Department,Bangalore / Bengaluru,Sdet,2019-06-19,,Active,,6.2,2,A,Female,37
+EMP0274,Lakshmi Singh,Technology / IT Department,Nandigama,Quality Engineer,2018-11-12,2022-07-18,Exited,Better Opportunity,8.6,1,B,Male,40
+EMP0275,Rahul Reddy,HR Operations Department,Nandigama,Junior Engineer,2022-05-17,,Active,,4.6,2,C,Male,22
+EMP0276,Lakshmi Sharma,Operations Support Department,Hyderabad / Secunderabad,Senior QA Engineer,2020-12-30,,Active,,4.3,2,B,Female,50
+EMP0277,Aarav Iyer,Marketing Department,Hyderabad / Secunderabad,Associate Project Manager,2023-05-25,,Active,,5.9,2,C,Female,46
+EMP0278,Vikram Singh,HR Operations Department,Hyderabad / Secunderabad,Lead Software Engineer,2020-08-04,2022-03-28,Exited,Relocation,6.6,3,C,Female,47
+EMP0279,Priya Reddy,Product Management - Technology Department,Hyderabad / Secunderabad,Member Technical Staff 2,2018-06-14,2020-07-17,Exited,Compensation,5.5,2,C,Male,29
+EMP0280,Rohan Nair,HR Operations Department,Nandigama,Associate Project Manager,2023-04-01,,Active,,7.3,5,B,Female,44
+EMP0281,Ananya Patel,Data Science & Analytics - Other Department,Nandigama,Principal Software Engineer,2020-09-08,,Active,,5.4,5,C,Female,50
+EMP0282,Aditya Nair,UI / UX Department,Hyderabad / Secunderabad,Data Analyst 1,2018-10-30,2023-01-07,Exited,Work-Life Balance,8.8,1,B,Male,24
+EMP0283,Diya Reddy,Software Development Department,Bangalore / Bengaluru,SDE,2020-11-19,,Active,,6.1,5,A,Male,47
+EMP0284,Aarav Reddy,DBA / Data warehousing Department,Bangalore / Bengaluru,Junior Engineer,2021-09-07,,Active,,7.7,1,B,Female,34
+EMP0285,Riya Nair,Business Intelligence & Analytics Department,Bangalore / Bengaluru,QA Engineer,2021-10-13,,Active,,5.1,4,B,Female,27
+EMP0286,Ananya Singh,Production & Manufacturing Department,Bangalore / Bengaluru,Front end Engineer,2022-01-06,,Active,,4.6,4,C,Female,30
+EMP0287,Karthik Iyer,UI / UX Department,Bangalore / Bengaluru,Data Analyst 1,2020-12-16,,Active,,6.5,5,A,Male,32
+EMP0288,Rohan Sharma,Quality Assurance and Testing Department,Bangalore / Bengaluru,Software Development Engineer,2022-07-18,2023-03-26,Exited,Work-Life Balance,7.5,5,A,Male,32
+EMP0289,Diya Sharma,Quality Assurance and Testing Department,Bangalore / Bengaluru,Principal Software Engineer,2021-12-01,,Active,,8.1,2,A,Female,32
+EMP0290,Meera Reddy,Operations Support Department,Hyderabad / Secunderabad,SDE-2,2018-09-04,,Active,,6.6,4,C,Male,46
+EMP0291,Riya Reddy,Data Science & Analytics - Other Department,Hyderabad / Secunderabad,Marketing Executive,2021-05-22,,Active,,6.0,4,B,Female,42
+EMP0292,Aarav Patel,IT Support Department,Nandigama,Marketing Executive,2021-04-28,,Active,,5.2,5,C,Male,45
+EMP0293,Rohan Sharma,Marketing Department,Nandigama,Principal Engineer,2021-02-07,,Active,,6.2,4,C,Female,29
+EMP0294,Rohan Sharma,Recruitment & Talent Acquisition Department,Bangalore / Bengaluru,Associate Project Manager,2021-01-07,2023-07-19,Exited,Relocation,8.8,1,A,Male,28
+EMP0295,Diya Nair,Software Development Department,Nandigama,Front end Engineer,2020-09-03,,Active,,5.1,3,B,Female,28
+EMP0296,Priya Nair,Quality Assurance and Testing Department,Hyderabad / Secunderabad,Software Development Engineer,2018-12-29,2019-08-12,Exited,Better Opportunity,4.9,2,A,Male,27
+EMP0297,Rohan Nair,Technology / IT Department,Hyderabad / Secunderabad,Principal Software Engineer,2023-01-08,,Active,,8.9,5,A,Male,49
+EMP0298,Priya Sharma,Technology / IT Department,Bangalore / Bengaluru,Sdet,2021-03-15,,Active,,7.5,2,B,Male,39
+EMP0299,Meera Iyer,Software Development Department,Bangalore / Bengaluru,QA Engineer,2020-05-06,2023-01-23,Exited,Compensation,7.7,3,C,Male,30
+EMP0300,Aisha Nair,Software Development Department,Bangalore / Bengaluru,QA Engineer,2018-05-19,2023-03-14,Exited,Work-Life Balance,8.4,1,C,Male,45
