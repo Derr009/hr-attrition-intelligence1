@@ -5,59 +5,66 @@ from pathlib import Path
 import os
 from datetime import datetime as dt
 
-def generate_hrms_dummy_data(num_employees=300, save_csv=True):
+def generate_hrms_dummy_data(save_csv=True):
     project_root = Path(__file__).resolve().parent.parent
     data_dir = project_root / "data"
     backup_dir = project_root / "Backup" / "hrms"
 
-    # Finalized Departments & Locations
+    reviews_path = data_dir / "nineleaps-technology-solutions_reviews.csv"
+    hrms_path = data_dir / "hrms_latest.csv"
+
+    # Load existing reviews
+    reviews_df = pd.read_csv(reviews_path)
+    total_reviews = len(reviews_df)
+
+    # Load existing HRMS if it exists
+    if hrms_path.exists():
+        existing_hrms_df = pd.read_csv(hrms_path)
+        existing_count = len(existing_hrms_df)
+    else:
+        existing_hrms_df = pd.DataFrame()
+        existing_count = 0
+
+    # Calculate how many new internal records to generate
+    new_count = total_reviews - existing_count
+
+    if new_count <= 0:
+        print("✅ No new reviews found. HRMS data is up to date.")
+        return existing_hrms_df
+
+    print(f"🔄 Generating HRMS data for {new_count} new reviews...")
+
+    # HRMS fields
     departments = [
-        'IT Support Department',
-        'Software Development Department',
-        'HR Operations Department',
-        'DBA / Data warehousing Department',
-        'Data Science & Machine Learning Department',
-        'Business Intelligence & Analytics Department',
-        'UI / UX Department',
-        'Quality Assurance and Testing Department',
-        'Production & Manufacturing Department',
-        'Data Science & Analytics - Other Department',
-        'Engineering Department',
-        'Marketing Department',
-        'Data Department',
-        'Product Management - Technology Department',
-        'Technology / IT Department',
-        'Recruitment & Talent Acquisition Department',
-        'Operations Support Department'
+        'IT Support Department', 'Software Development Department',
+        'HR Operations Department', 'DBA / Data warehousing Department',
+        'Data Science & Machine Learning Department', 'Business Intelligence & Analytics Department',
+        'UI / UX Department', 'Quality Assurance and Testing Department',
+        'Production & Manufacturing Department', 'Data Science & Analytics - Other Department',
+        'Engineering Department', 'Marketing Department', 'Data Department',
+        'Product Management - Technology Department', 'Technology / IT Department',
+        'Recruitment & Talent Acquisition Department', 'Operations Support Department'
     ]
     locations = ['Bangalore / Bengaluru', 'Hyderabad / Secunderabad', 'Nandigama']
-
-    # Finalized Designations (Job Titles)
     designations = [
-        'Data Engineer', 'Lead Software Engineer',
-        'Software Development Engineer II', 'Front end Engineer',
-        'Associate', 'HR Executive', 'Software Development Engineer 1',
-        'Software Engineer', 'Data Analyst 1', 'Data Analyst',
-        'UI UX Developer', 'Software Development Engineer',
-        'Quality Engineer', 'Software Developer', 'Principal Engineer',
-        'Junior Engineer', 'Marketing Executive',
-        'Senior Quality Engineer', 'Sdet', 'SDE',
-        'Principal Software Engineer', 'Associate Project Manager',
-        'QA Engineer', 'Senior Talent Partner', 'Senior Software Engineer',
-        'Member Technical Staff 2', 'SDE-2', 'Technical Staff Member 3',
-        'Senior QA Engineer'
+        'Data Engineer', 'Lead Software Engineer', 'Software Development Engineer II', 'Front end Engineer',
+        'Associate', 'HR Executive', 'Software Development Engineer 1', 'Software Engineer', 'Data Analyst 1',
+        'Data Analyst', 'UI UX Developer', 'Software Development Engineer', 'Quality Engineer',
+        'Software Developer', 'Principal Engineer', 'Junior Engineer', 'Marketing Executive',
+        'Senior Quality Engineer', 'Sdet', 'SDE', 'Principal Software Engineer', 'Associate Project Manager',
+        'QA Engineer', 'Senior Talent Partner', 'Senior Software Engineer', 'Member Technical Staff 2',
+        'SDE-2', 'Technical Staff Member 3', 'Senior QA Engineer'
     ]
-
     attrition_reasons = ['Better Opportunity', 'Work-Life Balance', 'Relocation', 'Compensation', 'Personal Reasons']
-    salary_bands = ['A', 'B', 'C']  # A = low, B = mid, C = high
+    salary_bands = ['A', 'B', 'C']
     indian_names = ['Aarav', 'Vivaan', 'Aditya', 'Diya', 'Ishaan', 'Ananya', 'Riya', 'Karthik', 'Sneha', 'Arjun',
                     'Priya', 'Rahul', 'Meera', 'Siddharth', 'Aisha', 'Vikram', 'Lakshmi', 'Rohan', 'Pooja', 'Krishna']
 
-    data = []
     start_date = datetime.date(2018, 1, 1)
     end_date = datetime.date(2025, 1, 1)
 
-    for emp_id in range(1, num_employees + 1):
+    data = []
+    for emp_id in range(existing_count + 1, total_reviews + 1):
         joining = start_date + datetime.timedelta(days=random.randint(0, 2000))
         is_exited = random.choice([True, False])
         exit_date = joining + datetime.timedelta(days=random.randint(200, 2000)) if is_exited else None
@@ -82,16 +89,18 @@ def generate_hrms_dummy_data(num_employees=300, save_csv=True):
             "age": random.randint(22, 50)
         })
 
-    df = pd.DataFrame(data)
+    new_df = pd.DataFrame(data)
+    combined_df = pd.concat([existing_hrms_df, new_df], ignore_index=True)
 
-    # Save to CSVs using backup utility
+    # Save with backup
     if save_csv:
         from etl.utils import save_with_backup
-        latest_path = data_dir / "hrms_latest.csv"
-        save_with_backup(df, latest_path, backup_dir, prefix="hrms_data")
+        save_with_backup(combined_df, hrms_path, backup_dir, prefix="hrms_data")
 
-    return df
+    print(f"✅ HRMS updated. Total records: {len(combined_df)}")
+
+    return combined_df
 
 if __name__ == "__main__":
-    df_hrms = generate_hrms_dummy_data(300)
-    print(df_hrms.head())
+    df_hrms = generate_hrms_dummy_data()
+    print(df_hrms.tail(3))

@@ -14,15 +14,32 @@ def merge_hrms_reviews():
 
     # Load datasets
     hrms_path = data_dir / "hrms_latest.csv"
-    reviews_path = data_dir / "nineleaps-technology-solutions_reviews_latest.csv"
+    reviews_path = data_dir / "nineleaps-technology-solutions_reviews.csv"
+    enriched_path = data_dir / "reviews_enriched_latest.csv"
+
     df_hrms = pd.read_csv(hrms_path, parse_dates=["joining_date", "exit_date"])
     df_reviews = pd.read_csv(reviews_path, parse_dates=["ReviewDate"])
 
-    # --- Clean ---
+    # Load existing enriched reviews if present
+    if enriched_path.exists():
+        existing_enriched_df = pd.read_csv(enriched_path, parse_dates=["review_date"])
+        already_merged_ids = set(existing_enriched_df['review_id'])
+    else:
+        existing_enriched_df = pd.DataFrame()
+        already_merged_ids = set()
+
+    # Filter only fresh (unmerged) reviews
+    df_reviews = df_reviews[~df_reviews['ReviewID'].isin(already_merged_ids)]
+
+    if df_reviews.empty:
+        print("No new reviews to process.")
+        return existing_enriched_df
+
+    # Clean department fields
     df_hrms['department'] = df_hrms['department'].str.strip()
     df_reviews['Department'] = df_reviews['Department'].str.replace('Department', '', regex=False).str.strip()
 
-    # --- Improved Mapping: prioritize department+location, then department, then any employee ---
+    # Enrich fresh reviews
     enriched_reviews = []
     for _, review in df_reviews.iterrows():
         # 1. Try department + location match
@@ -63,23 +80,25 @@ def merge_hrms_reviews():
             "age": mapped_emp['age']
         })
 
-    # This logic ensures all reviews are enriched and output count is preserved, maximizing match quality.
+    new_enriched_df = pd.DataFrame(enriched_reviews)
 
-    merged_df = pd.DataFrame(enriched_reviews)
+    # Concatenate with previous data (incremental update)
+    full_enriched_df = pd.concat([existing_enriched_df, new_enriched_df], ignore_index=True)
 
-    # --- Save to CSV with backup utility ---
+    # Save with backup
     from etl.utils import save_with_backup
-    latest_path = data_dir / "reviews_enriched_latest.csv"
-    save_with_backup(merged_df, latest_path, backup_dir, prefix="reviews_enriched")
+    save_with_backup(full_enriched_df, enriched_path, backup_dir, prefix="reviews_enriched")
 
-    # --- Insert into SQLite ---
+    # --- Insert only new data to SQLite ---
     db_path = project_root / "data" / "hr_analytics.db"
     conn = sqlite3.connect(db_path)
-    merged_df.to_sql("reviews_enriched", conn, if_exists="replace", index=False)
-    conn.close()
-    print("Inserted enriched data into SQLite.")
 
-    return merged_df
+    # If table exists, append only new records
+    new_enriched_df.to_sql("merged_data", conn, if_exists="append", index=False)
+    conn.close()
+    print(f"Inserted {len(new_enriched_df)} new records into SQLite.")
+
+    return new_enriched_df
 
 if __name__ == "__main__":
     df_merged = merge_hrms_reviews()

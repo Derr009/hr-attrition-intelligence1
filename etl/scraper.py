@@ -9,6 +9,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def parse_review_block(review_meta, soup):
+    # ... (No changes here, your function remains as it is)
     review_id = review_meta.get('id')
     if not review_id:
         return None
@@ -55,28 +56,48 @@ def parse_review_block(review_meta, soup):
     }
 
 def scrape_reviews(company_slug, num_pages=3, delay=1, save_csv=True):
-    # Project root path detection
     project_root = Path(__file__).resolve().parent.parent
     data_dir = project_root / "data"
     backup_dir = project_root / "Backup" / "reviews"
+    meta_dir = data_dir  # Keep metadata next to CSV
 
     base_url = f"https://www.ambitionbox.com/reviews/{company_slug}-reviews"
     headers = {'User-Agent': 'Mozilla/5.0'}
     reviews_data = []
 
-    for page in range(1, num_pages + 1):
+    # == Track last scraped page number ==
+    latest_path = data_dir / f"{company_slug}_reviews.csv"
+    meta_path = meta_dir / f"{company_slug}_last_page.txt"
+    os.makedirs(data_dir, exist_ok=True)
+    os.makedirs(backup_dir, exist_ok=True)
+
+    # ==== Load last scraped page index ====
+    last_scraped_page = 0
+    if meta_path.exists():
+        try:
+            with open(meta_path, 'r') as f:
+                last_scraped_page = int(f.read().strip())
+        except Exception:
+            last_scraped_page = 0
+
+    print(f"🕑 Last scraped page: {last_scraped_page}")
+    start_page = last_scraped_page + 1
+    end_page = start_page + num_pages - 1
+
+    for page in range(start_page, end_page + 1):
         page_url = f"{base_url}?page={page}"
+        print(f"→ Scraping page {page}: {page_url}")
         try:
             res = requests.get(page_url, headers=headers, verify=False)
             res.raise_for_status()
         except requests.exceptions.RequestException as e:
             print(f"Error fetching page {page_url}: {e}")
-            continue
+            break
 
         soup = BeautifulSoup(res.content, "html.parser")
         review_meta_tags = soup.find_all("span", attrs={"itemscope": True, "itemtype": "https://schema.org/Review"})
         if not review_meta_tags:
-            print(f"No reviews found on page {page}. Possibly last page.")
+            print(f"No reviews found on page {page}. Possibly last page. Stopping.")
             break
 
         for review_meta in review_meta_tags:
@@ -84,28 +105,36 @@ def scrape_reviews(company_slug, num_pages=3, delay=1, save_csv=True):
             if parsed_data:
                 reviews_data.append(parsed_data)
 
+        # Update last scraped page number
+        with open(meta_path, 'w') as f:
+            f.write(str(page))
+
         time.sleep(delay)
 
-    df = pd.DataFrame(reviews_data)
+    new_df = pd.DataFrame(reviews_data)
 
-    if save_csv:
-        os.makedirs(data_dir, exist_ok=True)
-        os.makedirs(backup_dir, exist_ok=True)
+    if save_csv and not new_df.empty:
+        # === Load existing data and append ===
+        if latest_path.exists():
+            existing_df = pd.read_csv(latest_path)
+            combined_df = pd.concat([existing_df, new_df], ignore_index=True)
+            combined_df.drop_duplicates(subset="ReviewID", inplace=True)
+        else:
+            combined_df = new_df
 
-        # Save versioned archive
+        # Save updated full version
+        combined_df.to_csv(latest_path, index=False)
+        print(f"✅ Main file updated: {latest_path} (total {len(combined_df)} reviews)")
+
+        # Save versioned backup
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         backup_path = backup_dir / f"{company_slug}_reviews_{timestamp}.csv"
-        df.to_csv(backup_path, index=False)
+        combined_df.to_csv(backup_path, index=False)
+        print(f"📦 Backup saved to: {backup_path}")
 
-        # Save latest copy for pipeline
-        latest_path = data_dir / f"{company_slug}_reviews_latest.csv"
-        df.to_csv(latest_path, index=False)
-
-        print(f"Saved latest to {latest_path} and archived version to {backup_path}")
-
-    return df
+    return new_df
 
 # For standalone testing
 if __name__ == "__main__":
-    df = scrape_reviews("nineleaps-technology-solutions", num_pages=3)
+    df = scrape_reviews("nineleaps-technology-solutions", num_pages=1)
     print(df.head())
