@@ -1,0 +1,15 @@
+# Core runtime dependencies
+pandas
+requests
+beautifulsoup4
+urllib3
+schedule
+
+# HTML parsing speedup (optional but recommended)
+lxml
+
+# If you plan to use Google Drive/Sheets scripts under scripts/
+# Uncomment the following packages
+# google-api-python-client
+# google-auth-httplib2
+# google-auth-oauthlib

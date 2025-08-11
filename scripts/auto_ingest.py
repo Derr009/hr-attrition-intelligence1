@@ -18,9 +18,11 @@ timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 log_file = LOGS_DIR / f"auto_ingest_{timestamp}.log"
 
 # The ETL pipeline entry point
-pipeline_script = PROJECT_ROOT / "etl" / "pipeline.py"
+pipeline_script = PROJECT_ROOT / "main.py"
 
-cmd = [str(VENV_PYTHON), str(pipeline_script)]
+# Prefer the project's venv Python if it exists; otherwise, use the current interpreter
+python_exec = VENV_PYTHON if VENV_PYTHON.exists() else Path(sys.executable)
+cmd = [str(python_exec), str(pipeline_script)]
 
 with open(log_file, "w") as f:
     f.write(f"=== Auto-Ingestion Run: {timestamp} ===\n")
