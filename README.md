@@ -8,7 +8,7 @@ An ETL pipeline that scrapes public employee reviews, generates dummy internal H
 - Synthetic HRMS data generation aligned to scraped volume
 - Merge/enrichment of reviews with HRMS attributes
 - SQLite storage with a simple schema
-- Optional scheduler and auto-ingest script for automation
+- Optional daily scheduler for automation
 
 ## Project Structure
 ```
@@ -70,7 +70,7 @@ python scheduler.py
 - For production/servers, prefer `cron` or a workflow runner and target `python main.py`.
 
 ## Logs
-- Prints to console. If you use `scripts/auto_ingest.py`, it will log to `logs/` per run.
+- Prints to console. You can redirect output to files if needed or run under a process manager/cron for logging.
 
 ## Notes and Next Steps
 - The scraper currently disables TLS verification in requests; consider enabling verification and adding retry/backoff.
