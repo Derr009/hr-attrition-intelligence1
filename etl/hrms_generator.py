@@ -29,10 +29,10 @@ def generate_hrms_dummy_data(save_csv=True):
     new_count = total_reviews - existing_count
 
     if new_count <= 0:
-        print("✅ No new reviews found. HRMS data is up to date.")
+        print(" No new reviews found. HRMS data is up to date.")
         return existing_hrms_df
 
-    print(f"🔄 Generating HRMS data for {new_count} new reviews...")
+    print(f" Generating HRMS data for {new_count} new reviews...")
 
     # HRMS fields
     departments = [
@@ -97,7 +97,7 @@ def generate_hrms_dummy_data(save_csv=True):
         from etl.utils import save_with_backup
         save_with_backup(combined_df, hrms_path, backup_dir, prefix="hrms_data")
 
-    print(f"✅ HRMS updated. Total records: {len(combined_df)}")
+    print(f"HRMS updated. Total records: {len(combined_df)}")
 
     return combined_df
 

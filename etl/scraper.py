@@ -79,7 +79,7 @@ def scrape_reviews(company_slug, num_pages=3, delay=1, save_csv=True):
         except Exception:
             last_scraped_page = 0
 
-    print(f"🕑 Last scraped page: {last_scraped_page}")
+    print(f" Last scraped page: {last_scraped_page}")
     start_page = last_scraped_page + 1
     end_page = start_page + num_pages - 1
 
@@ -129,7 +129,7 @@ def scrape_reviews(company_slug, num_pages=3, delay=1, save_csv=True):
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         backup_path = backup_dir / f"{company_slug}_reviews_{timestamp}.csv"
         combined_df.to_csv(backup_path, index=False)
-        print(f"📦 Backup saved to: {backup_path}")
+        print(f" Backup saved to: {backup_path}")
 
     return new_df
 

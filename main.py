@@ -33,4 +33,4 @@ if __name__ == "__main__":
             sys.exit(1)
         run_script(script)
 
-    print("\n🎉 All ETL steps completed successfully.")
+    print("\nAll ETL steps completed successfully.")
