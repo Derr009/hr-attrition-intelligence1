@@ -9,7 +9,6 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def parse_review_block(review_meta, soup):
-    # ... (No changes here, your function remains as it is)
     review_id = review_meta.get('id')
     if not review_id:
         return None
