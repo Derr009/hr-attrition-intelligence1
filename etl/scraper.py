@@ -12,7 +12,7 @@ def parse_review_block(review_meta, soup):
     review_id = review_meta.get('id')
     if not review_id:
         return None
-
+#add
     company = review_meta.select_one('meta[itemprop="name"]')['content'] if review_meta.select_one('meta[itemprop="name"]') else ""
     author_span = review_meta.find('span', itemprop="author")
     job_title = author_span.select_one('meta[itemprop="jobTitle"]')['content'] if author_span and author_span.select_one('meta[itemprop="jobTitle"]') else ""
