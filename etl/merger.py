@@ -1,10 +1,23 @@
 import pandas as pd
 import sqlite3
 from pathlib import Path
-from datetime import datetime
 import os
 import random
 
+# --- Google Sheets Setup ---
+import gspread
+from google.oauth2.service_account import Credentials
+
+SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
+CREDS = Credentials.from_service_account_file(
+    "capstone-467705-65af793df23b.json",  # <-- path to your JSON key
+    scopes=SCOPES
+)
+
+client = gspread.authorize(CREDS)
+
+SPREADSHEET_ID = "1vrGu57Y1w7OMQjRNkxyYZK9mZ1gsv4KlnY4XiylxJg4"  # your sheet ID
+SHEET_NAME = "Master Data"  # tab name
 
 
 def merge_hrms_reviews():
@@ -44,7 +57,6 @@ def merge_hrms_reviews():
     # Enrich fresh reviews
     enriched_reviews = []
     for _, review in df_reviews.iterrows():
-        # 1. Try department + location match
         dept_loc_employees = df_hrms[
             (df_hrms['department'].str.lower() == review['Department'].lower()) &
             (df_hrms['location'].str.lower() == str(review['Location']).lower())
@@ -52,12 +64,10 @@ def merge_hrms_reviews():
         if not dept_loc_employees.empty:
             mapped_emp = dept_loc_employees.sample(1).iloc[0]
         else:
-            # 2. Try department only
             dept_employees = df_hrms[df_hrms['department'].str.lower() == review['Department'].lower()]
             if not dept_employees.empty:
                 mapped_emp = dept_employees.sample(1).iloc[0]
             else:
-                # 3. Fallback: any employee
                 mapped_emp = df_hrms.sample(1).iloc[0]
 
         enriched_reviews.append({
@@ -84,7 +94,7 @@ def merge_hrms_reviews():
 
     new_enriched_df = pd.DataFrame(enriched_reviews)
 
-    # Concatenate with previous data (incremental update)
+    # Concatenate with previous data
     full_enriched_df = pd.concat([existing_enriched_df, new_enriched_df], ignore_index=True)
 
     # Save with backup
@@ -94,13 +104,18 @@ def merge_hrms_reviews():
     # --- Insert only new data to SQLite ---
     db_path = project_root / "data" / "hr_analytics.db"
     conn = sqlite3.connect(db_path)
-
-    # If table exists, append only new records
     new_enriched_df.to_sql("merged_data", conn, if_exists="append", index=False)
     conn.close()
     print(f"Inserted {len(new_enriched_df)} new records into SQLite.")
 
+    # --- Also Append New Data to Google Sheets ---
+    if not new_enriched_df.empty:
+        worksheet = client.open_by_key(SPREADSHEET_ID).worksheet(SHEET_NAME)
+        worksheet.append_rows(new_enriched_df.astype(str).values.tolist(), value_input_option="USER_ENTERED")
+        print(f"✅ Pushed {len(new_enriched_df)} new rows to Google Sheets.")
+
     return new_enriched_df
+
 
 if __name__ == "__main__":
     df_merged = merge_hrms_reviews()
