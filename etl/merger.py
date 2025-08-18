@@ -1,5 +1,4 @@
 import pandas as pd
-import sqlite3
 from pathlib import Path
 import os
 import random
@@ -9,10 +8,13 @@ from googleapiclient.discovery import build
 from google.oauth2.service_account import Credentials
 from etl.utils import save_with_backup
 
+# --- MySQL Setup ---
+from sqlalchemy import create_engine
+
 # --- Google Sheets Setup with SSL Bypass ---
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 CREDS = Credentials.from_service_account_file(
-    "/home/nineleaps/PycharmProject/hr-attrition-intelligence1/etl/capstone-467705-65af793df23b.json",
+    "/home/nineleaps/Desktop/etl/capstone-467705-65af793df23b.json",
     scopes=SCOPES
 )
 
@@ -25,6 +27,14 @@ service = build("sheets", "v4", http=authorized_http)
 
 SPREADSHEET_ID = "1vrGu57Y1w7OMQjRNkxyYZK9mZ1gsv4KlnY4XiylxJg4"
 SHEET_NAME = "Master Data"
+
+# --- MySQL Connection (Update credentials here) ---
+MYSQL_USER = "root"       # 🔑 change this
+MYSQL_PASSWORD = "Derrick123"   # 🔑 change this
+MYSQL_HOST = "localhost"  # or your DB server IP
+MYSQL_DB = "hr_analytics"
+
+engine = create_engine(f"mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}/{MYSQL_DB}")
 
 
 def append_to_sheets(df):
@@ -120,15 +130,12 @@ def merge_hrms_reviews():
     # Save with backup
     save_with_backup(full_enriched_df, enriched_path, backup_dir, prefix="reviews_enriched")
 
-    # Insert only new data to SQLite
-    db_path = project_root / "data" / "hr_analytics.db"
-    conn = sqlite3.connect(db_path)
-    new_enriched_df.to_sql("merged_data", conn, if_exists="append", index=False)
-    conn.close()
-    print(f"Inserted {len(new_enriched_df)} new records into SQLite.")
-
-    # Append new data to Google Sheets (with SSL bypass)
+    # --- Insert only new data to MySQL instead of SQLite ---
     if not new_enriched_df.empty:
+        new_enriched_df.to_sql("merged_data", engine, if_exists="append", index=False)
+        print(f"✅ Inserted {len(new_enriched_df)} new records into MySQL.")
+
+        # Append new data to Google Sheets (with SSL bypass)
         append_to_sheets(new_enriched_df)
 
     return new_enriched_df
