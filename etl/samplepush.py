@@ -7,7 +7,7 @@ scopes = ["https://www.googleapis.com/auth/spreadsheets",
           "https://www.googleapis.com/auth/drive"]
 
 # Replace with your service account JSON key file
-creds = Credentials.from_service_account_file("/home/nineleaps/Desktop/etl/capstone-467705-65af793df23b.json", scopes=scopes)
+creds = Credentials.from_service_account_file("capstone-467705-65af793df23b.json", scopes=scopes)
 client = gspread.authorize(creds)
 
 # === Step 2: Generate a small dataset ===
