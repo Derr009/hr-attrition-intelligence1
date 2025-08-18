@@ -10,7 +10,7 @@ from google.oauth2.service_account import Credentials
 
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 CREDS = Credentials.from_service_account_file(
-    "capstone-467705-65af793df23b.json",  # <-- path to your JSON key
+    "/home/nineleaps/Desktop/etl/capstone-467705-65af793df23b.json",  # <-- path to your JSON key
     scopes=SCOPES
 )
 
