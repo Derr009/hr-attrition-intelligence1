@@ -3,21 +3,41 @@ import sqlite3
 from pathlib import Path
 import os
 import random
-
-# --- Google Sheets Setup ---
-import gspread
+import httplib2
+from google_auth_httplib2 import AuthorizedHttp
+from googleapiclient.discovery import build
 from google.oauth2.service_account import Credentials
+from etl.utils import save_with_backup
 
+# --- Google Sheets Setup with SSL Bypass ---
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 CREDS = Credentials.from_service_account_file(
-    "/home/nineleaps/Desktop/etl/capstone-467705-65af793df23b.json",  # <-- path to your JSON key
+    "/home/nineleaps/PycharmProject/hr-attrition-intelligence1/etl/capstone-467705-65af793df23b.json",
     scopes=SCOPES
 )
 
-client = gspread.authorize(CREDS)
+# Insecure bypass for corporate proxy/self-signed cert
+unverified_http = httplib2.Http(disable_ssl_certificate_validation=True)
+authorized_http = AuthorizedHttp(CREDS, http=unverified_http)
 
-SPREADSHEET_ID = "1vrGu57Y1w7OMQjRNkxyYZK9mZ1gsv4KlnY4XiylxJg4"  # your sheet ID
-SHEET_NAME = "Master Data"  # tab name
+# Google Sheets service
+service = build("sheets", "v4", http=authorized_http)
+
+SPREADSHEET_ID = "1vrGu57Y1w7OMQjRNkxyYZK9mZ1gsv4KlnY4XiylxJg4"
+SHEET_NAME = "Master Data"
+
+
+def append_to_sheets(df):
+    """Append dataframe rows to Google Sheets with SSL bypass."""
+    body = {"values": df.astype(str).values.tolist()}
+    service.spreadsheets().values().append(
+        spreadsheetId=SPREADSHEET_ID,
+        range=f"{SHEET_NAME}!A:Z",
+        valueInputOption="USER_ENTERED",
+        insertDataOption="INSERT_ROWS",
+        body=body
+    ).execute()
+    print(f"✅ Pushed {len(df)} new rows to Google Sheets.")
 
 
 def merge_hrms_reviews():
@@ -98,21 +118,18 @@ def merge_hrms_reviews():
     full_enriched_df = pd.concat([existing_enriched_df, new_enriched_df], ignore_index=True)
 
     # Save with backup
-    from etl.utils import save_with_backup
     save_with_backup(full_enriched_df, enriched_path, backup_dir, prefix="reviews_enriched")
 
-    # --- Insert only new data to SQLite ---
+    # Insert only new data to SQLite
     db_path = project_root / "data" / "hr_analytics.db"
     conn = sqlite3.connect(db_path)
     new_enriched_df.to_sql("merged_data", conn, if_exists="append", index=False)
     conn.close()
     print(f"Inserted {len(new_enriched_df)} new records into SQLite.")
 
-    # --- Also Append New Data to Google Sheets ---
+    # Append new data to Google Sheets (with SSL bypass)
     if not new_enriched_df.empty:
-        worksheet = client.open_by_key(SPREADSHEET_ID).worksheet(SHEET_NAME)
-        worksheet.append_rows(new_enriched_df.astype(str).values.tolist(), value_input_option="USER_ENTERED")
-        print(f"✅ Pushed {len(new_enriched_df)} new rows to Google Sheets.")
+        append_to_sheets(new_enriched_df)
 
     return new_enriched_df
 
