@@ -1,3 +1,5 @@
+from urllib.parse import quote_plus
+
 from merger import merge_with_faker
 from sqlalchemy import create_engine
 import httplib2
@@ -7,11 +9,16 @@ from google.oauth2.service_account import Credentials
 
 # --- MySQL Setup ---
 MYSQL_USER = "root"
-MYSQL_PASSWORD = "Derrick123"
+MYSQL_PASSWORD = "NewP@ssw0rd123!"
 MYSQL_HOST = "localhost"
 MYSQL_DB = "hr_analytics"
 
-engine = create_engine(f"mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}/{MYSQL_DB}")
+# Encode the password safely
+encoded_password = quote_plus(MYSQL_PASSWORD)
+
+engine = create_engine(
+    f"mysql+pymysql://{MYSQL_USER}:{encoded_password}@{MYSQL_HOST}:3306/{MYSQL_DB}"
+)
 
 # --- Google Sheets Setup ---
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]

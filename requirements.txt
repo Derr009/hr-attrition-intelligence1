@@ -4,6 +4,7 @@ requests
 beautifulsoup4
 urllib3
 schedule
+Faker
 
 # HTML parsing speedup (optional but recommended)
 lxml
