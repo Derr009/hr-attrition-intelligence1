@@ -1,56 +1,68 @@
 import pandas as pd
-from pathlib import Path
 import os
 import random
-import httplib2
-from google_auth_httplib2 import AuthorizedHttp
-from googleapiclient.discovery import build
-from google.oauth2.service_account import Credentials
+from pathlib import Path
+from faker import Faker
+from datetime import timedelta, date
 from etl.utils import save_with_backup
 
-# --- MySQL Setup ---
-from sqlalchemy import create_engine
+fake = Faker()
 
-# --- Google Sheets Setup with SSL Bypass ---
-SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
-CREDS = Credentials.from_service_account_file(
-    "/home/nineleaps/Desktop/etl/capstone-467705-65af793df23b.json",
-    scopes=SCOPES
-)
+def generate_fake_rows(n, real_df):
+    """Generate n fake rows following the schema of merged_data."""
+    job_titles = real_df["job_title"].dropna().unique().tolist()
+    departments = real_df["department"].dropna().unique().tolist()
+    locations = real_df["location"].dropna().unique().tolist()
+    salary_bands = real_df["salary_band"].dropna().unique().tolist()
+    genders = ["Male", "Female"]
 
-# Insecure bypass for corporate proxy/self-signed cert
-unverified_http = httplib2.Http(disable_ssl_certificate_validation=True)
-authorized_http = AuthorizedHttp(CREDS, http=unverified_http)
+    today = date.today()
+    fake_rows = []
 
-# Google Sheets service
-service = build("sheets", "v4", http=authorized_http)
+    for _ in range(n):
+        review_id = f"fake-{random.randint(90000000, 99999999)}"
+        company = "Nineleaps Technology Solutions"
+        job_title = random.choice(job_titles)
+        department = random.choice(departments)
+        location = random.choice(locations)
 
-SPREADSHEET_ID = "1vrGu57Y1w7OMQjRNkxyYZK9mZ1gsv4KlnY4XiylxJg4"
-SHEET_NAME = "Master Data"
+        joining_date = fake.date_between(start_date="-10y", end_date="-1y")
+        status = random.choices(["Active", "Exited"], weights=[0.6, 0.4])[0]
+        if status == "Exited":
+            min_exit_date = joining_date + timedelta(days=400)
+            exit_date = fake.date_between(start_date=min_exit_date, end_date=today) if min_exit_date < today else pd.NaT
+        else:
+            exit_date = pd.NaT
 
-# --- MySQL Connection (Update credentials here) ---
-MYSQL_USER = "root"       # 🔑 change this
-MYSQL_PASSWORD = "Derrick123"   # 🔑 change this
-MYSQL_HOST = "localhost"  # or your DB server IP
-MYSQL_DB = "hr_analytics"
+        review_date = fake.date_between(start_date=joining_date, end_date="today")
 
-engine = create_engine(f"mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}/{MYSQL_DB}")
+        overall_rating = random.choices([1, 2, 3, 4, 5], weights=[5, 10, 25, 35, 25])[0]
+        engagement_score = round(random.uniform(4, 9), 1)
+        performance_rating = random.choice([1, 2, 3, 4, 5])
+
+        salary_band = random.choice(salary_bands) if salary_bands else random.choice(["A","B","C"])
+        gender = random.choice(genders)
+        age = random.randint(22, 55)
+
+        employee_id = f"FAKE{random.randint(10000,99999)}"
+        name = fake.name()
+
+        pros = fake.sentence(nb_words=5)
+        cons = fake.sentence(nb_words=5)
+
+        fake_rows.append([
+            review_id, company, job_title, department, location, review_date,
+            overall_rating, pros, cons, employee_id, name, status,
+            joining_date, exit_date, engagement_score, performance_rating,
+            salary_band, gender, age
+        ])
+
+    fake_df = pd.DataFrame(fake_rows, columns=real_df.columns)
+    return fake_df
 
 
-def append_to_sheets(df):
-    """Append dataframe rows to Google Sheets with SSL bypass."""
-    body = {"values": df.astype(str).values.tolist()}
-    service.spreadsheets().values().append(
-        spreadsheetId=SPREADSHEET_ID,
-        range=f"{SHEET_NAME}!A:Z",
-        valueInputOption="USER_ENTERED",
-        insertDataOption="INSERT_ROWS",
-        body=body
-    ).execute()
-    print(f"✅ Pushed {len(df)} new rows to Google Sheets.")
-
-
-def merge_hrms_reviews():
+def merge_with_faker(fake_count=20):
+    """Merge HRMS + Reviews, then add fake rows."""
     project_root = Path(__file__).resolve().parent.parent
     data_dir = project_root / "data"
     backup_dir = project_root / "Backup" / "merged"
@@ -95,10 +107,7 @@ def merge_hrms_reviews():
             mapped_emp = dept_loc_employees.sample(1).iloc[0]
         else:
             dept_employees = df_hrms[df_hrms['department'].str.lower() == review['Department'].lower()]
-            if not dept_employees.empty:
-                mapped_emp = dept_employees.sample(1).iloc[0]
-            else:
-                mapped_emp = df_hrms.sample(1).iloc[0]
+            mapped_emp = dept_employees.sample(1).iloc[0] if not dept_employees.empty else df_hrms.sample(1).iloc[0]
 
         enriched_reviews.append({
             "review_id": review['ReviewID'],
@@ -124,23 +133,19 @@ def merge_hrms_reviews():
 
     new_enriched_df = pd.DataFrame(enriched_reviews)
 
-    # Concatenate with previous data
+    # Merge with old
     full_enriched_df = pd.concat([existing_enriched_df, new_enriched_df], ignore_index=True)
 
+    # Add fake rows
+    fake_df = generate_fake_rows(fake_count, full_enriched_df)
+    final_df = pd.concat([full_enriched_df, fake_df], ignore_index=True)
+
     # Save with backup
-    save_with_backup(full_enriched_df, enriched_path, backup_dir, prefix="reviews_enriched")
+    save_with_backup(final_df, enriched_path, backup_dir, prefix="reviews_enriched")
 
-    # --- Insert only new data to MySQL instead of SQLite ---
-    if not new_enriched_df.empty:
-        new_enriched_df.to_sql("merged_data", engine, if_exists="append", index=False)
-        print(f"✅ Inserted {len(new_enriched_df)} new records into MySQL.")
-
-        # Append new data to Google Sheets (with SSL bypass)
-        append_to_sheets(new_enriched_df)
-
-    return new_enriched_df
+    return final_df
 
 
 if __name__ == "__main__":
-    df_merged = merge_hrms_reviews()
-    print(df_merged.head())
+    df = merge_with_faker()
+    print(df.tail(10))
