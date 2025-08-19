@@ -5,6 +5,8 @@ beautifulsoup4
 urllib3
 schedule
 Faker
+python-dotenv
+
 
 # Database dependencies
 sqlalchemy
