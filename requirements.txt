@@ -6,6 +6,10 @@ urllib3
 schedule
 Faker
 
+# Database dependencies
+sqlalchemy
+psycopg2-binary
+
 # HTML parsing speedup (optional but recommended)
 lxml
 
