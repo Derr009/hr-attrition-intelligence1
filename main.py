@@ -22,9 +22,9 @@ if __name__ == "__main__":
     etl_dir = project_root / "etl"
 
     scripts = [
-        etl_dir / "scraper.py",
-        etl_dir / "hrms_generator.py",
-        etl_dir / "merger.py",
+        etl_dir / "reviews_scraper.py",
+        etl_dir / "internal_hrms_data_generator.py",
+        etl_dir / "data_merger.py",
         etl_dir / "push.py",
 
     ]

@@ -1,6 +1,6 @@
 import os
 from urllib.parse import quote_plus
-from merger import merge_with_faker
+from data_merger import merge_with_faker
 from sqlalchemy import create_engine, text
 import httplib2
 from google_auth_httplib2 import AuthorizedHttp
