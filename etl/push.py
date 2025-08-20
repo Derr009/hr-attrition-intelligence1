@@ -1,14 +1,15 @@
 import os
 from urllib.parse import quote_plus
 from merger import merge_with_faker
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 import httplib2
 from google_auth_httplib2 import AuthorizedHttp
 from googleapiclient.discovery import build
 from google.oauth2.service_account import Credentials
 from dotenv import load_dotenv
+import pandas as pd
 
-# Load environment variables from .env
+# Load environment variables
 load_dotenv()
 
 # --- PostgreSQL/Supabase Setup ---
@@ -35,33 +36,71 @@ service = build("sheets", "v4", http=authorized_http)
 SPREADSHEET_ID = os.getenv("GOOGLE_SPREADSHEET_ID")
 SHEET_NAME = os.getenv("GOOGLE_SHEET_NAME", "Master Data")
 
-def append_to_sheets(df):
-    body = {"values": df.astype(str).values.tolist()}
-    # Optional: clear sheet for full sync
-    service.spreadsheets().values().clear(
+
+def append_to_sheets_fresh_only(df):
+    """
+    Appends a dataframe to Google Sheets, including the header only if the sheet is empty.
+    """
+    if df.empty:
+        print("✅ No fresh data to append to Google Sheets.")
+        return
+
+    # Check if the sheet is empty to decide whether to include the header
+    result = service.spreadsheets().values().get(
         spreadsheetId=SPREADSHEET_ID,
-        range=f"{SHEET_NAME}!A:Z"
+        range=f"{SHEET_NAME}!A1:A1"
     ).execute()
+
+    sheet_is_empty = 'values' not in result
+
+    if sheet_is_empty:
+        # Append with header
+        values_to_append = [df.columns.tolist()] + df.astype(str).values.tolist()
+    else:
+        # Append without header
+        values_to_append = df.astype(str).values.tolist()
+
+    body = {"values": values_to_append}
+
     service.spreadsheets().values().append(
         spreadsheetId=SPREADSHEET_ID,
         range=f"{SHEET_NAME}!A:Z",
         valueInputOption="USER_ENTERED",
         body=body
     ).execute()
-    print(f"✅ Pushed {len(df)} rows to Google Sheets.")
+
+    print(f"✅ Appended {len(df)} fresh rows to Google Sheets.")
+
 
 if __name__ == "__main__":
+    # Step 1: Generate fresh merged data
     df_final = merge_with_faker(fake_count=250)
 
-    # Push to PostgreSQL
+    # Step 2: Fetch existing review_ids from DB
     try:
-        df_final.to_sql("merged_data", engine, if_exists="append", index=False)
-        print(f"✅ Inserted {len(df_final)} rows into PostgreSQL.")
+        with engine.connect() as conn:
+            existing_ids = pd.read_sql("SELECT review_id FROM merged_data", conn)
+        existing_ids_set = set(existing_ids["review_id"].tolist())
     except Exception as e:
-        print(f"❌ PostgreSQL Error: {e}")
+        print("⚠️ Table does not exist yet, inserting everything.")
+        existing_ids_set = set()
 
-    # Push to Google Sheets
-    try:
-        append_to_sheets(df_final)
-    except Exception as e:
-        print(f"❌ Google Sheets Error: {e}")
+    # Step 3: Filter only fresh data
+    fresh_df = df_final[~df_final["review_id"].isin(existing_ids_set)]
+
+    if fresh_df.empty:
+        print("✅ No new rows to insert.")
+    else:
+        # Step 4: Insert fresh rows into PostgreSQL
+        try:
+            fresh_df.to_sql("merged_data", engine, if_exists="append", index=False)
+            print(f"✅ Inserted {len(fresh_df)} fresh rows into PostgreSQL.")
+        except Exception as e:
+            print(f"❌ PostgreSQL Error: {e}")
+
+        # Step 5: Push updated data to Google Sheets
+        try:
+            # Use the new function to append only the fresh data
+            append_to_sheets_fresh_only(fresh_df)
+        except Exception as e:
+            print(f"❌ Google Sheets Error: {e}")

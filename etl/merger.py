@@ -8,6 +8,8 @@ from etl.utils import save_with_backup
 
 fake = Faker()
 
+import uuid
+
 def generate_fake_rows(n, real_df):
     """Generate n fake rows following the schema of merged_data."""
     job_titles = real_df["job_title"].dropna().unique().tolist()
@@ -20,7 +22,9 @@ def generate_fake_rows(n, real_df):
     fake_rows = []
 
     for _ in range(n):
-        review_id = f"fake-{random.randint(90000000, 99999999)}"
+        # Always unique because UUID4
+        review_id = f"reviews-{uuid.uuid4().hex}"
+
         company = "Nineleaps Technology Solutions"
         job_title = random.choice(job_titles)
         department = random.choice(departments)
@@ -30,7 +34,11 @@ def generate_fake_rows(n, real_df):
         status = random.choices(["Active", "Exited"], weights=[0.6, 0.4])[0]
         if status == "Exited":
             min_exit_date = joining_date + timedelta(days=400)
-            exit_date = fake.date_between(start_date=min_exit_date, end_date=today) if min_exit_date < today else pd.NaT
+            exit_date = (
+                fake.date_between(start_date=min_exit_date, end_date=today)
+                if min_exit_date < today
+                else pd.NaT
+            )
         else:
             exit_date = pd.NaT
 
@@ -40,7 +48,9 @@ def generate_fake_rows(n, real_df):
         engagement_score = round(random.uniform(4, 9), 1)
         performance_rating = random.choice([1, 2, 3, 4, 5])
 
-        salary_band = random.choice(salary_bands) if salary_bands else random.choice(["A","B","C"])
+        salary_band = (
+            random.choice(salary_bands) if salary_bands else random.choice(["A", "B", "C"])
+        )
         gender = random.choice(genders)
         age = random.randint(22, 55)
 
@@ -51,14 +61,30 @@ def generate_fake_rows(n, real_df):
         cons = fake.sentence(nb_words=5)
 
         fake_rows.append([
-            review_id, company, job_title, department, location, review_date,
-            overall_rating, pros, cons, employee_id, name, status,
-            joining_date, exit_date, engagement_score, performance_rating,
-            salary_band, gender, age
+            review_id,
+            company,
+            job_title,
+            department,
+            location,
+            review_date,
+            overall_rating,
+            pros,
+            cons,
+            employee_id,
+            name,
+            status,
+            joining_date,
+            exit_date,
+            engagement_score,
+            performance_rating,
+            salary_band,
+            gender,
+            age,
         ])
 
     fake_df = pd.DataFrame(fake_rows, columns=real_df.columns)
     return fake_df
+
 
 
 def merge_with_faker(fake_count=20):
