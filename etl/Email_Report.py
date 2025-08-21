@@ -33,6 +33,7 @@ SHEET_NAME = os.getenv("GOOGLE_SHEET_NAME", "Master Data")
 EMAIL_SENDER = os.getenv("EMAIL_SENDER")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
+SKIP_EMAIL = os.getenv("SKIP_EMAIL", "false").lower() == "true"
 
 # --- MODIFICATION: Define a directory for charts ---
 CHARTS_DIR = "charts"
@@ -295,25 +296,28 @@ doc.build(story)
 print("✅ PDF Report Generated")
 
 # ------------------ 9) Email ------------------
-subject = "HR Analytics Report"
-body = "Hello,\n\nPlease find attached the HR Analytics Report.\n\nBest,\nHR Analytics Bot"
+if not SKIP_EMAIL:
+    subject = "HR Analytics Report"
+    body = "Hello,\n\nPlease find attached the HR Analytics Report.\n\nBest,\nHR Analytics Bot"
 
-msg = MIMEMultipart()
-msg["From"] = EMAIL_SENDER
-msg["To"] = EMAIL_RECEIVER
-msg["Subject"] = subject
-msg.attach(MIMEText(body, "plain"))
+    msg = MIMEMultipart()
+    msg["From"] = EMAIL_SENDER
+    msg["To"] = EMAIL_RECEIVER
+    msg["Subject"] = subject
+    msg.attach(MIMEText(body, "plain"))
 
-with open("HR_Analytics_Report.pdf", "rb") as f:
-    part = MIMEBase("application", "octet-stream")
-    part.set_payload(f.read())
-encoders.encode_base64(part)
-part.add_header("Content-Disposition", "attachment; filename=HR_Analytics_Report.pdf")
-msg.attach(part)
+    with open("HR_Analytics_Report.pdf", "rb") as f:
+        part = MIMEBase("application", "octet-stream")
+        part.set_payload(f.read())
+    encoders.encode_base64(part)
+    part.add_header("Content-Disposition", "attachment; filename=HR_Analytics_Report.pdf")
+    msg.attach(part)
 
-with smtplib.SMTP("smtp.gmail.com", 587) as server:
-    server.starttls()
-    server.login(EMAIL_SENDER, EMAIL_PASSWORD)
-    server.send_message(msg)
+    with smtplib.SMTP("smtp.gmail.com", 587) as server:
+        server.starttls()
+        server.login(EMAIL_SENDER, EMAIL_PASSWORD)
+        server.send_message(msg)
 
-print("✅ Email Sent to", EMAIL_RECEIVER)
+    print("✅ Email Sent to", EMAIL_RECEIVER)
+else:
+    print("✅ Email sending skipped (SKIP_EMAIL=true)")

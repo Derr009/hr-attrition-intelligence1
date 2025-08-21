@@ -7,6 +7,7 @@ import time
 import webbrowser
 import json
 from datetime import datetime
+import threading
 
 # Page configuration
 st.set_page_config(
@@ -216,6 +217,45 @@ def display_execution_metrics():
     with col4:
         st.markdown(f"""<div class="metric-card"><div class="metric-number">{success_rate:.0f}%</div><div class="metric-label">Success Rate</div></div>""", unsafe_allow_html=True)
 
+def run_report_generation(send_email=False):
+    """Run report generation with optional email sending"""
+    start_time = time.time()
+    try:
+        project_root = Path(__file__).resolve().parent
+        env = dict(os.environ)
+        env['PYTHONPATH'] = str(project_root)
+
+        # Create a modified version of Email_Report.py that optionally skips email
+        report_script = project_root / "etl" / "Email_Report.py"
+
+        if not report_script.exists():
+            return False, "", "Email_Report.py not found", 0
+
+        # If we don't want to send email, we'll modify the environment to skip email
+        if not send_email:
+            env['SKIP_EMAIL'] = 'true'
+
+        result = subprocess.run(
+            [sys.executable, str(report_script)],
+            capture_output=True,
+            text=True,
+            timeout=300,
+            env=env,
+            cwd=str(project_root)
+        )
+
+        duration = time.time() - start_time
+        success = result.returncode == 0
+        script_name = "Report Generation" + (" + Email" if send_email else "")
+        log_execution(script_name, success, duration, result.stdout, result.stderr)
+        return success, result.stdout, result.stderr, duration
+
+    except Exception as e:
+        duration = time.time() - start_time
+        script_name = "Report Generation" + (" + Email" if send_email else "")
+        log_execution(script_name, False, duration, None, str(e))
+        return False, "", str(e), duration
+
 def display_execution_history():
     if not st.session_state.execution_history:
         return
@@ -266,7 +306,7 @@ def main():
         st.success("All systems operational" if all_scripts_exist else "Some components missing")
 
     # Tabs
-    tab1, tab2, tab3, tab4 = st.tabs(["Scripts", "Pipeline", "Analytics", "Monitoring"])
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(["Scripts", "Pipeline", "Reports", "Analytics", "Monitoring"])
 
     with tab1:
         st.markdown("## Individual Script Execution")
@@ -302,6 +342,86 @@ def main():
                 st.error("main.py not found")
 
     with tab3:
+        st.markdown("## HR Analytics Reports")
+        st.markdown("Generate comprehensive HR analytics reports with charts and insights.")
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.markdown("""
+            <div class="script-card">
+                <h3>📊 Generate Report Only</h3>
+                <p><strong>Function:</strong> Creates PDF report with analytics</p>
+                <p><strong>Output:</strong> HR_Analytics_Report.pdf</p>
+                <p><strong>Duration:</strong> ~30-60 seconds</p>
+                <p>Generates a comprehensive analytics report with charts, KPIs, and department insights without sending email.</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+            if st.button("📊 Generate Report", key="generate_report_only"):
+                with st.spinner("Generating HR Analytics Report..."):
+                    success, stdout, stderr, duration = run_report_generation(send_email=False)
+                    if success:
+                        st.markdown(f'<div class="success-alert">📊 Report generated successfully in {duration:.1f}s! Check for HR_Analytics_Report.pdf in the project directory.</div>', unsafe_allow_html=True)
+                        if stdout:
+                            st.expander("View Generation Log").code(stdout, language='text')
+
+                        # Check if PDF was created and offer download
+                        pdf_path = Path(__file__).resolve().parent / "HR_Analytics_Report.pdf"
+                        if pdf_path.exists():
+                            with open(pdf_path, "rb") as pdf_file:
+                                st.download_button(
+                                    label="📥 Download Report",
+                                    data=pdf_file.read(),
+                                    file_name="HR_Analytics_Report.pdf",
+                                    mime="application/pdf",
+                                    key="download_report"
+                                )
+                    else:
+                        st.markdown(f'<div class="error-alert">❌ Report generation failed after {duration:.1f}s.</div>', unsafe_allow_html=True)
+                        if stderr:
+                            st.expander("Error Details").code(stderr, language='text')
+
+        with col2:
+            st.markdown("""
+            <div class="script-card">
+                <h3>📧 Generate Report + Send Email</h3>
+                <p><strong>Function:</strong> Creates PDF report and emails it</p>
+                <p><strong>Output:</strong> PDF report sent via email</p>
+                <p><strong>Duration:</strong> ~30-90 seconds</p>
+                <p>Generates the analytics report and automatically sends it to the configured email recipient.</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+            if st.button("📧 Generate & Email Report", key="generate_and_email_report"):
+                with st.spinner("Generating and emailing HR Analytics Report..."):
+                    success, stdout, stderr, duration = run_report_generation(send_email=True)
+                    if success:
+                        st.markdown(f'<div class="success-alert">📧 Report generated and emailed successfully in {duration:.1f}s!</div>', unsafe_allow_html=True)
+                        if stdout:
+                            st.expander("View Generation & Email Log").code(stdout, language='text')
+                    else:
+                        st.markdown(f'<div class="error-alert">❌ Report generation/email failed after {duration:.1f}s.</div>', unsafe_allow_html=True)
+                        if stderr:
+                            st.expander("Error Details").code(stderr, language='text')
+
+        st.markdown("---")
+        st.markdown("### Report Configuration")
+        st.info("""
+        **Email Configuration**: Reports are sent using the email settings in your `.env` file:
+        - `EMAIL_SENDER`: Your Gmail address
+        - `EMAIL_PASSWORD`: Your Gmail app password
+        - `EMAIL_RECEIVER`: Recipient email address
+
+        **Report Contents**: The generated report includes:
+        - Executive summary with key KPIs
+        - Department-wise analysis and attrition rates
+        - Performance and engagement metrics
+        - Workforce demographics and trends
+        - Visual charts and graphs
+        """)
+
+    with tab4:
         st.markdown("## Analytics Dashboard")
         st.markdown("""<div class="dashboard-card"><h3>Looker Studio Dashboard</h3><p>Access the HR attrition analytics dashboard with interactive visualizations, key metrics, and predictive insights.</p></div>""", unsafe_allow_html=True)
         looker_url = "https://lookerstudio.google.com/reporting/5c455533-2a58-4ada-9b71-edcb282d6fed/page/Da6UF/edit"
@@ -309,7 +429,7 @@ def main():
             webbrowser.open(looker_url)
             st.markdown(f"[Open Dashboard]({looker_url})")
 
-    with tab4:
+    with tab5:
         st.markdown("## Monitoring & History")
         display_execution_metrics()
         st.markdown("---")
