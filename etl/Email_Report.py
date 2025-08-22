@@ -28,12 +28,22 @@ load_dotenv()
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 GOOGLE_CREDS_PATH = os.getenv("GOOGLE_CREDS_PATH")
 SPREADSHEET_ID = os.getenv("GOOGLE_SPREADSHEET_ID")
-SHEET_NAME = os.getenv("GOOGLE_SHEET_NAME", "Master Data")
+SHEET_NAME = os.getenv("GOOGLE_SHEET_NAME", "SupabaseData")
 
 EMAIL_SENDER = os.getenv("EMAIL_SENDER")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
+CUSTOM_EMAIL_RECIPIENTS = os.getenv("CUSTOM_EMAIL_RECIPIENTS")
 SKIP_EMAIL = os.getenv("SKIP_EMAIL", "false").lower() == "true"
+REPORT_TYPE = os.getenv("REPORT_TYPE", "Full")
+
+# Parse recipients - use custom recipients if provided, otherwise use default
+if CUSTOM_EMAIL_RECIPIENTS:
+    recipients_list = [email.strip() for email in CUSTOM_EMAIL_RECIPIENTS.split(',') if email.strip()]
+elif EMAIL_RECEIVER:
+    recipients_list = [EMAIL_RECEIVER]
+else:
+    recipients_list = []
 
 # --- MODIFICATION: Define a directory for charts ---
 CHARTS_DIR = "charts"
@@ -41,18 +51,59 @@ CHARTS_DIR = "charts"
 os.makedirs(CHARTS_DIR, exist_ok=True)
 
 # ------------------ 2) Fetch Google Sheets Data ------------------
+print(f"📊 Accessing Google Sheets: {SPREADSHEET_ID}")
+
 creds = Credentials.from_service_account_file(GOOGLE_CREDS_PATH, scopes=SCOPES)
 http = AuthorizedHttp(creds, http=httplib2.Http(disable_ssl_certificate_validation=True))
 service = build("sheets", "v4", http=http)
 
-result = service.spreadsheets().values().get(
-    spreadsheetId=SPREADSHEET_ID,
-    range=f"{SHEET_NAME}!A:Z"
-).execute()
+# Try SupabaseData first, fallback to Master Data
+sheet_to_use = "SupabaseData"
+rows = None
 
-rows = result.get("values", [])
-if not rows:
-    raise ValueError("⚠️ Google Sheet is empty")
+try:
+    print(f"📋 Attempting to use sheet: {sheet_to_use}")
+    result = service.spreadsheets().values().get(
+        spreadsheetId=SPREADSHEET_ID,
+        range=f"{sheet_to_use}!A:Z"
+    ).execute()
+
+    rows = result.get("values", [])
+    if not rows:
+        raise ValueError("Sheet is empty")
+
+    print(f"✅ Successfully loaded {len(rows)} rows from {sheet_to_use} sheet")
+
+except Exception as e:
+    print(f"❌ Error accessing {sheet_to_use} sheet: {str(e)}")
+    print("🔄 Attempting to use fallback sheet: Master Data")
+
+    try:
+        sheet_to_use = "Master Data"
+        result = service.spreadsheets().values().get(
+            spreadsheetId=SPREADSHEET_ID,
+            range=f"{sheet_to_use}!A:Z"
+        ).execute()
+
+        rows = result.get("values", [])
+        if not rows:
+            raise ValueError("Master Data sheet is also empty")
+
+        print(f"✅ Successfully loaded {len(rows)} rows from {sheet_to_use} sheet (fallback)")
+
+    except Exception as fallback_error:
+        print(f"❌ Error accessing Master Data sheet: {str(fallback_error)}")
+        print("🔍 Available sheets in the spreadsheet:")
+        try:
+            spreadsheet = service.spreadsheets().get(spreadsheetId=SPREADSHEET_ID).execute()
+            sheets = spreadsheet.get('sheets', [])
+            for sheet in sheets:
+                sheet_name = sheet.get("properties", {}).get("title", "Unknown")
+                print(f"   - {sheet_name}")
+            print("💡 Make sure either 'SupabaseData' or 'Master Data' sheet exists and contains data")
+        except:
+            print("   Could not retrieve sheet list")
+        raise Exception("Neither SupabaseData nor Master Data sheets are accessible")
 
 # ------------------ 3) DataFrame ------------------
 max_len = max(len(rows[0]), max(len(r) for r in rows[1:]))
@@ -197,8 +248,12 @@ styles.add(ParagraphStyle(name="Small", parent=styles["Normal"], fontSize=9))
 
 story = []
 
+# Determine report content based on type
+is_summary = REPORT_TYPE == "Summary"
+
 # 1. Executive Summary
-story.append(Paragraph("HR Analytics Report — Comprehensive", styles["Title"]))
+title = "HR Analytics Report — Summary" if is_summary else "HR Analytics Report — Comprehensive"
+story.append(Paragraph(title, styles["Title"]))
 story.append(Spacer(1, 12))
 
 exec_data = [
@@ -237,7 +292,9 @@ dept_table.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
                                 ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
                                 ("ALIGN", (1, 1), (-1, -1), "CENTER")]))
 story.append(KeepTogether(dept_table))
-story.append(PageBreak())
+
+if not is_summary:
+    story.append(PageBreak())
 
 # --- MODIFICATION: Construct full path for all charts below ---
 dept_headcount_path = os.path.join(CHARTS_DIR, "dept_headcount.png")
@@ -248,76 +305,99 @@ monthly_exits_path = os.path.join(CHARTS_DIR, "monthly_exits.png")
 gender_dist_path = os.path.join(CHARTS_DIR, "gender_dist.png")
 salary_band_path = os.path.join(CHARTS_DIR, "salary_band.png")
 
-# 3. Workforce Metrics Graphs
-story.append(Paragraph("Workforce Metrics", styles["Heading2"]))
-if os.path.exists(dept_headcount_path):
-    story.append(Image(dept_headcount_path, width=16 * cm, height=9 * cm))
-story.append(PageBreak())
+if is_summary:
+    # Summary Report: Only key charts
+    story.append(Spacer(1, 20))
+    story.append(Paragraph("Key Metrics Overview", styles["Heading2"]))
 
-# 4. Performance & Engagement Graphs
-story.append(Paragraph("Performance & Engagement", styles["Heading2"]))
-if os.path.exists(dept_perf_path):
-    story.append(Image(dept_perf_path, width=16 * cm, height=9 * cm))
-if os.path.exists(perf_dist_path):
-    story.append(Image(perf_dist_path, width=16 * cm, height=9 * cm))
-story.append(PageBreak())
+    # Add only essential charts for summary
+    if os.path.exists(dept_headcount_path):
+        story.append(Image(dept_headcount_path, width=14 * cm, height=7 * cm))
+        story.append(Spacer(1, 12))
 
-# 5. Trends
-story.append(Paragraph("Trends", styles["Heading2"]))
-if os.path.exists(monthly_hirings_path):
-    story.append(Image(monthly_hirings_path, width=16 * cm, height=8 * cm))
-if os.path.exists(monthly_exits_path):
-    story.append(Image(monthly_exits_path, width=16 * cm, height=8 * cm))
-story.append(PageBreak())
+    if os.path.exists(dept_perf_path):
+        story.append(Image(dept_perf_path, width=14 * cm, height=7 * cm))
 
-# 6. Demographics & Diversity
-story.append(Paragraph("Demographics & Diversity", styles["Heading2"]))
-story.append(Spacer(1, 12))
+else:
+    # Full Report: All sections with charts
+    # 3. Workforce Metrics Graphs
+    story.append(Paragraph("Workforce Metrics", styles["Heading2"]))
+    if os.path.exists(dept_headcount_path):
+        story.append(Image(dept_headcount_path, width=16 * cm, height=9 * cm))
+    story.append(PageBreak())
 
-charts_on_one_page = []
+    # 4. Performance & Engagement Graphs
+    story.append(Paragraph("Performance & Engagement", styles["Heading2"]))
+    if os.path.exists(dept_perf_path):
+        story.append(Image(dept_perf_path, width=16 * cm, height=9 * cm))
+    if os.path.exists(perf_dist_path):
+        story.append(Image(perf_dist_path, width=16 * cm, height=9 * cm))
+    story.append(PageBreak())
 
-if os.path.exists(gender_dist_path):
-    img1 = Image(gender_dist_path)
-    img1.drawHeight = img1.imageHeight * cm / img1.imageWidth * 10
-    img1.drawWidth = 10 * cm
-    charts_on_one_page.append(img1)
-    charts_on_one_page.append(Spacer(1, 0.5 * cm))
+    # 5. Trends
+    story.append(Paragraph("Trends", styles["Heading2"]))
+    if os.path.exists(monthly_hirings_path):
+        story.append(Image(monthly_hirings_path, width=16 * cm, height=8 * cm))
+    if os.path.exists(monthly_exits_path):
+        story.append(Image(monthly_exits_path, width=16 * cm, height=8 * cm))
+    story.append(PageBreak())
 
-if os.path.exists(salary_band_path):
-    img2 = Image(salary_band_path)
-    img2.drawHeight = img2.imageHeight * cm / img2.imageWidth * 10
-    img2.drawWidth = 10 * cm
-    charts_on_one_page.append(img2)
+    # 6. Demographics & Diversity
+    story.append(Paragraph("Demographics & Diversity", styles["Heading2"]))
+    story.append(Spacer(1, 12))
 
-if charts_on_one_page:
-    story.append(KeepTogether(charts_on_one_page))
+    charts_on_one_page = []
+
+    if os.path.exists(gender_dist_path):
+        img1 = Image(gender_dist_path)
+        img1.drawHeight = img1.imageHeight * cm / img1.imageWidth * 10
+        img1.drawWidth = 10 * cm
+        charts_on_one_page.append(img1)
+        charts_on_one_page.append(Spacer(1, 0.5 * cm))
+
+    if os.path.exists(salary_band_path):
+        img2 = Image(salary_band_path)
+        img2.drawHeight = img2.imageHeight * cm / img2.imageWidth * 10
+        img2.drawWidth = 10 * cm
+        charts_on_one_page.append(img2)
+
+    if charts_on_one_page:
+        story.append(KeepTogether(charts_on_one_page))
 
 doc.build(story)
-print("✅ PDF Report Generated")
+print(f"✅ PDF {REPORT_TYPE} Report Generated")
 
 # ------------------ 9) Email ------------------
-if not SKIP_EMAIL:
-    subject = "HR Analytics Report"
-    body = "Hello,\n\nPlease find attached the HR Analytics Report.\n\nBest,\nHR Analytics Bot"
+if not SKIP_EMAIL and recipients_list:
+    subject = f"HR Analytics {REPORT_TYPE} Report"
+    report_description = "Summary Report with key metrics" if REPORT_TYPE == "Summary" else "Comprehensive Report with detailed analysis"
+    body = f"Hello,\n\nPlease find attached the HR Analytics {REPORT_TYPE} Report.\n\n{report_description} is included in this delivery.\n\nBest,\nHR Analytics Bot"
 
-    msg = MIMEMultipart()
-    msg["From"] = EMAIL_SENDER
-    msg["To"] = EMAIL_RECEIVER
-    msg["Subject"] = subject
-    msg.attach(MIMEText(body, "plain"))
-
-    with open("HR_Analytics_Report.pdf", "rb") as f:
-        part = MIMEBase("application", "octet-stream")
-        part.set_payload(f.read())
-    encoders.encode_base64(part)
-    part.add_header("Content-Disposition", "attachment; filename=HR_Analytics_Report.pdf")
-    msg.attach(part)
-
+    # Create server connection once
     with smtplib.SMTP("smtp.gmail.com", 587) as server:
         server.starttls()
         server.login(EMAIL_SENDER, EMAIL_PASSWORD)
-        server.send_message(msg)
 
-    print("✅ Email Sent to", EMAIL_RECEIVER)
+        # Send to each recipient
+        for recipient in recipients_list:
+            msg = MIMEMultipart()
+            msg["From"] = EMAIL_SENDER
+            msg["To"] = recipient
+            msg["Subject"] = subject
+            msg.attach(MIMEText(body, "plain"))
+
+            with open("HR_Analytics_Report.pdf", "rb") as f:
+                part = MIMEBase("application", "octet-stream")
+                part.set_payload(f.read())
+            encoders.encode_base64(part)
+            part.add_header("Content-Disposition", "attachment; filename=HR_Analytics_Report.pdf")
+            msg.attach(part)
+
+            server.send_message(msg)
+            print(f"✅ Email Sent to {recipient}")
+
+    print(f"✅ Report successfully sent to {len(recipients_list)} recipient(s): {', '.join(recipients_list)}")
+elif not SKIP_EMAIL and not recipients_list:
+    print("⚠️ No email recipients configured")
 else:
     print("✅ Email sending skipped (SKIP_EMAIL=true)")

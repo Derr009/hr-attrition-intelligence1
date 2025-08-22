@@ -11,6 +11,7 @@ gspread
 matplotlib
 seaborn
 reportlab
+schedule
 # Database dependencies
 sqlalchemy
 psycopg2-binary
