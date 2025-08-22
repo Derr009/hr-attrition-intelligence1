@@ -335,7 +335,7 @@ Private/internal project with cloud infrastructure components. Add appropriate l
 ---
 
 **Version**: 3.0.0 (Cloud-Native)  
-**Last Updated**: December 2024  
+**Last Updated**: August 2025
 **Architecture**: Supabase + Google Sheets + Streamlit  
 **Contact**: Development Team
 
