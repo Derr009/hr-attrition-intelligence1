@@ -1,81 +1,253 @@
-# HR Attrition Intelligence
+# HR Attrition Intelligence Dashboard
 
-An ETL pipeline that scrapes public employee reviews, generates dummy internal HRMS data, enriches reviews with HRMS attributes, and persists the results to CSV backups and a SQLite database.
+A comprehensive HR analytics platform that combines ETL data processing with interactive dashboards and automated reporting. The system scrapes public employee reviews, generates synthetic HRMS data, performs data enrichment, and provides visualization through a Streamlit dashboard with scheduled reporting capabilities.
 
-## Features
-- Incremental scraping with page checkpointing
-- Consistent CSV backups with timestamped versions
-- Synthetic HRMS data generation aligned to scraped volume
-- Merge/enrichment of reviews with HRMS attributes
-- SQLite storage with a simple schema
-- Optional daily scheduler for automation
+## 🚀 Features
 
-## Project Structure
+### Core ETL Pipeline
+- **Incremental Web Scraping**: Automated scraping of employee reviews with page checkpointing
+- **Synthetic Data Generation**: Creates realistic HRMS data aligned with scraped review volumes
+- **Data Enrichment & Merging**: Combines review data with HRMS attributes for comprehensive analysis
+- **Multi-format Storage**: CSV backups with timestamps + SQLite database persistence
+
+### Dashboard & Visualization
+- **Interactive Streamlit Dashboard**: Real-time data visualization and analytics
+- **Custom Chart Generation**: Dynamic charts and reports with export capabilities
+- **Configuration Management**: Persistent settings and user preferences
+
+### Automation & Scheduling
+- **Intelligent Scheduler**: Automated pipeline execution with configurable timing
+- **Email Reporting**: Scheduled PDF report generation and distribution
+- **Pipeline Monitoring**: Logging and status tracking for all processes
+
+### Integration Capabilities
+- **Google Workspace Integration**: Google Sheets and Drive connectivity
+- **Database Support**: SQLite and PostgreSQL compatibility
+- **API Endpoints**: RESTful interfaces for data access
+
+## 📁 Project Structure
+
 ```
-.
-├── data/                     # CSVs and SQLite DB live here
-├── etl/
-│   ├── scraper.py            # Scrapes reviews (incremental)
-│   ├── hrms_generator.py     # Generates/extends HRMS dummy dataset
-│   ├── merger.py             # Enriches reviews with HRMS attributes + writes to SQLite
-│   └── utils.py              # Shared helpers (backup + save)
-├── sql/
-│   └── schema.sql            # SQLite schema for merged_data
-├── main.py                   # Orchestrates ETL: scraper -> hrms -> merger
-├── scheduler.py              # Simple schedule-based runner (local)
-├── scripts/                  # Legacy/auxiliary scripts (Drive/Sheets, etc.)
-├── requirements.txt
-└── README.md
+hr-attrition-intelligence1/
+├── data/                                    # Data storage and outputs
+│   ├── *.csv                               # Review and HRMS data files
+│   └── hr_analytics.db                     # SQLite database
+├── etl/                                    # ETL pipeline components
+│   ├── reviews_scraper.py                  # Web scraping engine
+│   ├── internal_hrms_data_generator.py     # Synthetic HRMS data creation
+│   ├── data_merger.py                      # Data enrichment and merging
+│   ├── push.py                             # Data persistence and uploads
+│   ├── Email_Report.py                     # Automated email reporting
+│   ├── utils.py                            # Shared utilities and helpers
+│   ├── charts/                             # Generated visualizations
+│   └── hr_imgs/                            # Image assets and exports
+├── sql/                                    # Database management
+│   ├── schema.sql                          # Database schema definitions
+│   └── setup_db.py                         # Database initialization script
+├── Backup/                                 # Timestamped data backups
+│   ├── reviews/                            # Review data archives
+│   └── hrms/                               # HRMS data archives
+├── charts/                                 # Dashboard chart outputs
+├── dashboard.py                            # Streamlit dashboard application
+├── main.py                                 # ETL pipeline orchestrator
+├── scheduler.py                            # Automated scheduling system
+├── requirements.txt                        # Python dependencies
+├── dashboard_config.json                   # Dashboard configuration
+└── *.log                                   # System logs and monitoring
 ```
 
-## Quickstart
+## 🛠️ Installation & Setup
 
-### 1) Python environment
+### 1. Environment Setup
 ```bash
+# Clone and navigate to project
+cd hr-attrition-intelligence1
+
+# Create virtual environment
 python3 -m venv venv
-source venv/bin/activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 2) Initialize the database schema
+### 2. Database Initialization
 ```bash
-python setup_db.py
+# Initialize SQLite database with schema
+python sql/setup_db.py
 ```
-This creates `data/hr_analytics.db` and the `merged_data` table.
 
-### 3) Run the ETL pipeline
+### 3. Configuration
+- Update company parameters in `etl/reviews_scraper.py`
+- Configure email settings in `dashboard_config.json` (created automatically)
+- Set up Google API credentials if using Google integrations (optional)
+
+## 🚀 Usage
+
+### Quick Start - Run Complete Pipeline
 ```bash
 python main.py
 ```
-The pipeline runs the following steps:
-1. `etl/scraper.py` scrapes reviews and appends to `data/<company>_reviews.csv` with timestamped backups under `Backup/reviews/`.
-2. `etl/hrms_generator.py` generates or extends `data/hrms_latest.csv` and backs up under `Backup/hrms/`.
-3. `etl/merger.py` enriches new reviews and writes to `data/reviews_enriched_latest.csv`, appending only new rows to SQLite.
+This executes the full ETL workflow:
+1. **Scraping**: Extracts employee reviews and saves to `data/<company>_reviews.csv`
+2. **HRMS Generation**: Creates/extends synthetic HR data in `data/hrms_latest.csv`
+3. **Data Merging**: Enriches reviews with HRMS attributes → `data/reviews_enriched_latest.csv`
+4. **Database Storage**: Persists new records to SQLite database
+5. **Backup Creation**: Timestamped backups in `Backup/` directory
 
-Outputs:
-- CSVs in `data/`
-- Backups in `Backup/`
-- SQLite DB at `data/hr_analytics.db`
+### Interactive Dashboard
+```bash
+streamlit run dashboard.py
+```
 
-## Configuration
-- Company slug and scrape parameters are currently set in `etl/scraper.py` (default example: `nineleaps-technology-solutions`).
-- Adjust `num_pages` and `delay` as needed (or we can externalize them to CLI flags upon request).
+Features:
+- 📊 **Real-time Analytics**: Interactive charts and KPIs
+- 🔄 **Pipeline Control**: Run ETL processes on-demand
+- 📧 **Report Management**: Schedule and configure email reports
+- ⚙️ **Settings**: Manage schedules and configurations
+- 📈 **Data Visualization**: Custom charts with export options
 
-## Scheduling
-Run locally on a schedule using the simple scheduler:
+### Automated Scheduling
+
+#### Simple Daily Schedule
 ```bash
 python scheduler.py
 ```
-- By default it schedules one run per day (see code for exact time).
-- For production/servers, prefer `cron` or a workflow runner and target `python main.py`.
+- Default: Runs daily at 12:30 PM
+- Customize time via `SCHEDULE_TIME` environment variable
 
-## Logs
-- Prints to console. You can redirect output to files if needed or run under a process manager/cron for logging.
+#### Advanced Scheduling (Dashboard)
+Use the Streamlit dashboard for:
+- Custom schedule configuration
+- Email report automation
+- Pipeline monitoring and logs
 
-## Notes and Next Steps
-- The scraper currently disables TLS verification in requests; consider enabling verification and adding retry/backoff.
-- `scripts/` contains legacy utilities and Google integrations; they are optional.
-- We can add CLI flags/config, structured logging, and DB upsert safeguards if you’d like.
+## 📊 Data Flow
 
-## License
-Private/internal project. Add a license here if you intend to open source.
+```mermaid
+graph LR
+    A[Web Scraping] --> B[HRMS Generation]
+    B --> C[Data Merging]
+    C --> D[Database Storage]
+    C --> E[CSV Backups]
+    D --> F[Dashboard]
+    E --> F
+    F --> G[Email Reports]
+    F --> H[Charts Export]
+```
+
+## ⚙️ Configuration Options
+
+### ETL Pipeline Settings
+- **Company Target**: Configure in `etl/reviews_scraper.py`
+- **Scraping Parameters**: Page limits, delays, retry logic
+- **Data Generation**: HRMS record volumes and attributes
+
+### Dashboard Settings
+- **Email Recipients**: Managed through dashboard interface
+- **Report Scheduling**: Configurable timing and frequency
+- **Chart Preferences**: Colors, formats, export options
+
+### Database Configuration
+- **SQLite** (default): Local file-based storage
+- **PostgreSQL**: Configure connection string in environment variables
+
+## 📧 Email Reporting
+
+Automated PDF report generation with:
+- Executive summaries and KPIs
+- Trend analysis and visualizations
+- Data quality metrics
+- Customizable recipient lists and schedules
+
+## 🔐 Security & Best Practices
+
+- **Environment Variables**: Store sensitive credentials securely
+- **TLS Verification**: Enable for production deployments
+- **API Rate Limiting**: Implemented in scraping modules
+- **Data Backup**: Automated timestamped backups
+- **Error Handling**: Comprehensive logging and recovery
+
+## 📝 Logging & Monitoring
+
+- **Console Output**: Real-time process status
+- **File Logs**: `scheduled_pipelines.log`, `scheduled_reports.log`
+- **Error Tracking**: Detailed error messages and stack traces
+- **Performance Metrics**: Execution times and data volumes
+
+## 🔧 Advanced Usage
+
+### Custom Integrations
+- **Google Sheets**: Automatic data sync and reporting
+- **Google Drive**: Backup and file management
+- **Custom APIs**: Extend with additional data sources
+
+### Development
+```bash
+# Run specific ETL components
+python etl/reviews_scraper.py
+python etl/internal_hrms_data_generator.py
+python etl/data_merger.py
+
+# Database operations
+python sql/setup_db.py  # Initialize/reset database
+```
+
+## 🚦 System Requirements
+
+- **Python**: 3.8+ (3.9+ recommended)
+- **Memory**: 4GB+ RAM for large datasets
+- **Storage**: 1GB+ free space for data and backups
+- **Network**: Reliable internet for web scraping
+
+## 📋 Dependencies
+
+### Core Libraries
+- **pandas**: Data manipulation and analysis
+- **requests**: HTTP client for web scraping
+- **beautifulsoup4**: HTML parsing
+- **streamlit**: Dashboard framework
+- **sqlalchemy**: Database abstraction
+
+### Visualization
+- **matplotlib**: Chart generation
+- **seaborn**: Statistical visualizations
+- **reportlab**: PDF report generation
+
+### Automation
+- **schedule**: Job scheduling
+- **faker**: Synthetic data generation
+- **google-api-python-client**: Google services integration
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branches for new functionality
+3. Follow PEP 8 style guidelines
+4. Add unit tests for new features
+5. Update documentation as needed
+
+## 🐛 Troubleshooting
+
+### Common Issues
+- **Scraping Failures**: Check internet connection and target site availability
+- **Database Errors**: Verify SQLite file permissions and disk space
+- **Dashboard Issues**: Ensure all dependencies installed and ports available
+- **Email Delivery**: Validate SMTP settings and recipient addresses
+
+### Debug Mode
+Add verbose logging by setting environment variable:
+```bash
+export DEBUG=1
+python main.py
+```
+
+## 📄 License
+
+Private/internal project. Add appropriate license terms if planning to open source.
+
+---
+
+**Version**: 2.0.0  
+**Last Updated**: December 2024  
+**Contact**: Development Team
