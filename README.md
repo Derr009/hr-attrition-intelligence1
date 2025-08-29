@@ -2,7 +2,7 @@
 
 A comprehensive HR analytics platform that combines ETL data processing with cloud-based storage and interactive dashboards. The system scrapes public employee reviews, generates synthetic HRMS data, performs data enrichment, and provides real-time visualization through a Streamlit dashboard with integrated cloud database and Google Sheets synchronization.
 
-## 🚀 Features
+##  Features
 
 ### Core ETL Pipeline
 - **Incremental Web Scraping**: Automated scraping of employee reviews with page checkpointing
@@ -57,7 +57,7 @@ hr-attrition-intelligence1/
 └── *.log                                   # System logs and monitoring
 ```
 
-## 🛠️ Installation & Setup
+##  Installation & Setup
 
 ### 1. Environment Setup
 ```bash
@@ -109,12 +109,12 @@ streamlit run dashboard.py
 ```
 
 **Dashboard Features:**
-- 📊 **Real-time Analytics**: Live charts connected to Supabase
-- 🔄 **Pipeline Control**: Run ETL processes on-demand
-- ⏰ **Integrated Scheduling**: Configure automated runs within the dashboard
-- 📧 **Email Reports**: Schedule and manage automated reports
-- 🔄 **Data Sync**: Monitor Supabase ↔ Google Sheets synchronization
-- ⚙️ **Cloud Settings**: Manage all configurations through the interface
+-  **Real-time Analytics**: Live charts connected to Supabase
+-  **Pipeline Control**: Run ETL processes on-demand
+-  **Integrated Scheduling**: Configure automated runs within the dashboard
+-  **Email Reports**: Schedule and manage automated reports
+-  **Data Sync**: Monitor Supabase ↔ Google Sheets synchronization
+- ⚙ **Cloud Settings**: Manage all configurations through the interface
 
 ### Manual Pipeline Execution
 ```bash
@@ -129,7 +129,7 @@ python main.py
 5. **Sheets Backup**: Syncs data to Google Sheets via API
 6. **App Script Trigger**: Activates bidirectional sync via Google Apps Script
 
-## 📊 Data Flow Architecture
+##  Data Flow Architecture
 
 ```mermaid
 graph TB
@@ -157,7 +157,7 @@ graph TB
     end
 ```
 
-## 🔄 Cloud Integration Details
+##  Cloud Integration Details
 
 ### Supabase Database
 - **Real-time Updates**: Live data synchronization with dashboard
@@ -177,7 +177,7 @@ graph TB
 3. **Google Apps Script** ↔ **Sheets** ↔ **Database** (Bidirectional sync)
 4. **Dashboard** reads from **Supabase** for real-time visualization
 
-## ⚙️ Configuration & Scheduling
+##  Configuration & Scheduling
 
 ### Dashboard-Based Scheduling
 All scheduling is managed through the Streamlit dashboard:
@@ -192,7 +192,7 @@ All scheduling is managed through the Streamlit dashboard:
 - **Local Cache**: `dashboard_config.json` for offline access
 - **Environment Variables**: Sensitive credentials via environment
 
-## 📧 Email Reporting System
+##  Email Reporting System
 
 **Automated Features:**
 - **Cloud-Generated Reports**: Reports pull data directly from Supabase
@@ -201,7 +201,7 @@ All scheduling is managed through the Streamlit dashboard:
 - **Flexible Scheduling**: Configure frequency and recipients via dashboard
 - **Delivery Tracking**: Monitor email delivery status
 
-## 🔐 Security & Best Practices
+##  Security & Best Practices
 
 ### Cloud Security
 - **Environment Variables**: All sensitive keys stored securely
@@ -215,7 +215,7 @@ All scheduling is managed through the Streamlit dashboard:
 - **Access Controls**: Granular permissions for different user roles
 - **Audit Logging**: Complete activity tracking in cloud database
 
-## 📝 Monitoring & Logging
+##  Monitoring & Logging
 
 ### Real-time Monitoring
 - **Dashboard Status**: Live pipeline status in Streamlit interface
@@ -228,7 +228,7 @@ All scheduling is managed through the Streamlit dashboard:
 - **Local Backup**: `*.log` files for offline access
 - **Google Sheets**: Sync status and history in dedicated sheet tabs
 
-## 🔧 Advanced Features
+##  Advanced Features
 
 ### Google Apps Script Integration
 The system uses Google Apps Script for advanced sheet-database synchronization:
@@ -247,7 +247,7 @@ function syncToDatabase() {
 - **Google Sheets API**: Read/write access to backup sheets
 - **Custom Webhooks**: Trigger pipeline runs via API calls
 
-## 🚦 System Requirements
+##  System Requirements
 
 ### Cloud Dependencies
 - **Supabase Account**: For primary database storage
@@ -260,7 +260,7 @@ function syncToDatabase() {
 - **Storage**: 1GB+ for temporary files and local cache
 - **Network**: Reliable connection for cloud operations
 
-## 📋 Dependencies
+##  Dependencies
 
 ### Core Libraries
 - **pandas**: Data manipulation and analysis
@@ -281,7 +281,7 @@ function syncToDatabase() {
 - **reportlab**: PDF report generation
 - **plotly**: Interactive dashboard charts
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Cloud Issues
 - **Supabase Connection**: Verify URL and API keys in environment
@@ -306,7 +306,7 @@ The Streamlit dashboard includes built-in health checks for:
 - Apps Script sync status
 - Pipeline execution history
 
-## 🤝 Contributing
+##  Contributing
 
 1. **Fork Repository**: Create your own copy
 2. **Cloud Setup**: Configure your own Supabase and Google Cloud instances
@@ -314,7 +314,7 @@ The Streamlit dashboard includes built-in health checks for:
 4. **Documentation**: Update both code and cloud configuration docs
 5. **Pull Request**: Include cloud setup instructions for reviewers
 
-## 📊 Data Schema
+##  Data Schema
 
 ### Supabase Tables
 - `reviews_enriched`: Main analytical dataset
@@ -328,7 +328,7 @@ The Streamlit dashboard includes built-in health checks for:
 - **Sheet 3**: Historical data archive
 - **Sheet 4**: Configuration backup
 
-## 📄 License
+##  License
 
 Private/internal project with cloud infrastructure components. Add appropriate license terms considering cloud service usage and data handling requirements.
 
@@ -339,7 +339,7 @@ Private/internal project with cloud infrastructure components. Add appropriate l
 **Architecture**: Supabase + Google Sheets + Streamlit  
 **Contact**: Development Team
 
-## 🆘 Quick Start Checklist
+##  Quick Start Checklist
 
 - [ ] Environment variables configured (Supabase + Google)
 - [ ] Google service account created and sheet shared
